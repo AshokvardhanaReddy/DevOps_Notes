@@ -1,0 +1,221 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ""
+  namespace: ""
+  annotations: {}
+  labels: {}
+
+  creationTimestamp: ""
+  deletionGracePeriodSeconds: 0
+  deletionTimestamp: ""
+  finalizers:
+    - ""
+  generateName: ""
+  generation: 0
+  managedFields:
+    - apiVersion: ""
+      fieldsType: ""
+      fieldsV1: {}
+      manager: ""
+      operation: ""
+      subresource: ""
+      time: ""
+  ownerReferences:
+    - apiVersion: "" # Required
+      blockOwnerDeletion: false
+      controller: false
+      kind: "" # Required
+      name: "" # Required
+      uid: "" # Required
+  resourceVersion: ""
+  selfLink: ""
+  uid: ""
+spec:
+  volumes:
+    - name: volumeName
+      emptyDir: {}
+      hostPath:
+        path: ""
+        type: BlockDevice, CharDevice, Directory, ....
+      configMap:
+        name: ""
+        defaultMode: 0
+        items:
+          - key: "" # Required
+            mode: 0
+            path: "" # Required
+        optional: false
+      secret:
+        secretName: ""
+        defaultMode: 0
+        items:
+          - key: "" # Required
+            mode: 0
+            path: "" # Required
+        optional: false
+        
+  containers:
+    - name: "" # Required
+      image: ""
+      ports:
+        - name: ""
+          containerPort: <integer> # Required
+          hostIP: ""
+          hostPort: 0
+          protocol: SCTP, TCP, UDP
+      volumeMounts:
+          - name: volumeName
+            mountPath: /usr/share/nginx/html
+            mountPropagation: Bidirectional, HostToContainer, None
+            readOnly: false
+            recursiveReadOnly: ""
+            subPath: ""
+            subPathExpr: ""
+      env:
+        - name: "" # Required
+          value: ""
+      envFrom:
+        - configMapRef:
+            name: ""
+            optional: false
+          prefix: ""
+          secretRef:
+            name: ""
+            optional: false
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "500m"
+          memory: "256Mi"
+      command:
+        - "/bin/sh"
+      args:
+        - "-c"
+        - "echo $APP_ENV && sleep 3600"
+  initContainers:
+    - name: "" # Required
+      image: ""
+      ports:
+        - name: ""
+          containerPort: <integer> # Required
+          hostIP: ""
+          hostPort: 0
+          protocol: SCTP, TCP, UDP
+      volumeMounts:
+          - name: volumeName
+            mountPath: /usr/share/nginx/html
+            mountPropagation: Bidirectional, HostToContainer, None
+            readOnly: false
+            recursiveReadOnly: ""
+            subPath: ""
+            subPathExpr: ""
+      env:
+        - name: "" # Required
+          value: ""
+      envFrom:
+        - configMapRef:
+            name: ""
+            optional: false
+          prefix: ""
+          secretRef:
+            name: ""
+            optional: false
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "500m"
+          memory: "256Mi"
+      command:
+        - "/bin/sh"
+      args:
+        - "-c"
+        - "echo $APP_ENV && sleep 3600"
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: <Integer or String> # Required
+            scheme: HTTP, HTTPS
+          sleep:
+            seconds: <integer> # Required
+          tcpSocket:
+            host: ""
+            port: <integer or string> # Required
+        preStop:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: <integer or string> # Required
+            scheme: HTTP, HTTPS
+          sleep:
+            seconds: <integer> # Required
+          tcpSocket:
+            host: ""
+            port: <integer or string> # Required
+        stopSignal: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+      livenessProbe:
+        httpGet:
+          path: ""
+          port: "" # Required
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          scheme: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      readinessProbe:
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0

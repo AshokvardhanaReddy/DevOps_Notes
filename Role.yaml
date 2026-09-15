@@ -1,0 +1,43 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: <string>
+  namespace: <string>
+  annotations: <map[string]string>
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  labels: <map[string]string>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:
+    - apiVersion: <string> # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string> # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+rules:
+  - apiGroups:
+      - <string>
+    nonResourceURLs:
+      - <string>
+    resourceNames:
+      - <string>
+    resources:
+      - <string>
+    verbs:
+      - <string> # Required

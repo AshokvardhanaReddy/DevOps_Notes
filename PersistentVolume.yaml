@@ -1,0 +1,249 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: <string>
+  namespace: <string>
+  labels:
+    app: storage
+    environment: production
+  annotations:
+    description: persistent volume
+    owner: ashok
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:
+    - apiVersion: <string> # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string> # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+spec:
+  accessModes:
+    - <string>
+  awsElasticBlockStore:
+    fsType: <string>
+    partition: <integer>
+    readOnly: <boolean>
+    volumeID: <string> # Required
+  azureDisk:
+    cachingMode: <string>
+    # Enum: None, ReadOnly, ReadWrite
+    diskName: <string> # Required
+    diskURI: <string> # Required
+    fsType: <string>
+    kind: <string>
+    # Enum: Dedicated, Managed, Shared
+    readOnly: <boolean>
+  azureFile:
+    readOnly: <boolean>
+    secretName: <string> # Required
+    secretNamespace: <string>
+    shareName: <string> # Required
+  capacity:
+    storage: <Quantity>
+  cephfs:
+    monitors:
+      - <string>
+    path: <string>
+    readOnly: <boolean>
+    secretFile: <string>
+    secretRef:
+      name: <string>
+      namespace: <string>
+    user: <string>
+  cinder:
+    fsType: <string>
+    readOnly: <boolean>
+    secretRef:
+      name: <string>
+      namespace: <string>
+    volumeID: <string> # Required
+  claimRef:
+    apiVersion: <string>
+    fieldPath: <string>
+    kind: <string>
+    name: <string>
+    namespace: <string>
+    resourceVersion: <string>
+    uid: <string>
+  csi:
+    controllerExpandSecretRef:
+      name: <string>
+      namespace: <string>
+    controllerPublishSecretRef:
+      name: <string>
+      namespace: <string>
+    driver: <string> # Required
+    fsType: <string>
+    nodeExpandSecretRef:
+      name: <string>
+      namespace: <string>
+    nodePublishSecretRef:
+      name: <string>
+      namespace: <string>
+    nodeStageSecretRef:
+      name: <string>
+      namespace: <string>
+    readOnly: <boolean>
+    volumeAttributes:
+      attribute: value
+    volumeHandle: <string> # Required
+  fc:
+    fsType: <string>
+    lun: <integer>
+    readOnly: <boolean>
+    targetWWNs:
+      - <string>
+    wwids:
+      - <string>
+  flexVolume:
+    driver: <string> # Required
+    fsType: <string>
+    options:
+      option: value
+    readOnly: <boolean>
+    secretRef:
+      name: <string>
+      namespace: <string>
+  flocker:
+    datasetName: <string>
+    datasetUUID: <string>
+  gcePersistentDisk:
+    fsType: <string>
+    partition: <integer>
+    pdName: <string> # Required
+    readOnly: <boolean>
+  glusterfs:
+    endpoints: <string> # Required
+    endpointsNamespace: <string>
+    path: <string> # Required
+    readOnly: <boolean>
+  hostPath:
+    path: <string> # Required
+    type: <string>
+    # Enum: "", BlockDevice, CharDevice, Directory, ....
+  iscsi:
+    chapAuthDiscovery: <boolean>
+    chapAuthSession: <boolean>
+    fsType: <string>
+    initiatorName: <string>
+    iqn: <string> # Required
+    iscsiInterface: <string>
+    lun: <integer> # Required
+    portals:
+      - <string>
+    readOnly: <boolean>
+    secretRef:
+      name: <string>
+      namespace: <string>
+    targetPortal: <string> # Required
+  local:
+    fsType: <string>
+    path: <string> # Required
+  mountOptions:
+    - <string>
+  nfs:
+    path: <string> # Required
+    readOnly: <boolean>
+    server: <string> # Required
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: <string> # Required
+              operator: <string> # Required
+              # Enum: DoesNotExist, Exists, Gt, In, Lt
+              values:
+                - <string>
+          matchFields:
+            - key: <string> # Required
+              operator: <string> # Required
+              # Enum: DoesNotExist, Exists, Gt, In, Lt
+              values:
+                - <string>
+  persistentVolumeReclaimPolicy: <string>
+  # Enum: Delete, Recycle, Retain
+  photonPersistentDisk:
+    fsType: <string>
+    pdID: <string> # Required
+  portworxVolume:
+    fsType: <string>
+    readOnly: <boolean>
+    volumeID: <string> # Required
+  quobyte:
+    group: <string>
+    readOnly: <boolean>
+    registry: <string> # Required
+    tenant: <string>
+    user: <string>
+    volume: <string> # Required
+  rbd:
+    fsType: <string>
+    image: <string> # Required
+    keyring: <string>
+    monitors:
+      - <string>
+    pool: <string>
+    readOnly: <boolean>
+    secretRef:
+      name: <string>
+      namespace: <string>
+    user: <string>
+  scaleIO:
+    fsType: <string>
+    gateway: <string> # Required
+    protectionDomain: <string>
+    readOnly: <boolean>
+    secretRef:
+      name: <string> # Required
+      namespace: <string>
+    sslEnabled: <boolean>
+    storageMode: <string>
+    storagePool: <string>
+    system: <string> # Required
+    volumeName: <string>
+  storageClassName: <string>
+  storageos:
+    fsType: <string>
+    readOnly: <boolean>
+    secretRef:
+      apiVersion: <string>
+      fieldPath: <string>
+      kind: <string>
+      name: <string>
+      namespace: <string>
+      resourceVersion: <string>
+      uid: <string>
+    volumeName: <string>
+    volumeNamespace: <string>
+  volumeAttributesClassName: <string>
+  volumeMode: <string>
+  # Enum: Block, Filesystem
+  vsphereVolume:
+    fsType: <string>
+    storagePolicyID: <string>
+    storagePolicyName: <string>
+    volumePath: <string> # Required
+status:
+  lastPhaseTransitionTime: <string>
+  message: <string>
+  phase: <string>
+  # Enum: Available, Bound, Failed, Pending, ....
+  reason: <string>

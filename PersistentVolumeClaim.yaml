@@ -1,0 +1,95 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: <string>
+  namespace: <string>
+  labels:
+    app: mysql
+    environment: production
+  annotations:
+    description: persistent volume claim
+    owner: ashok
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:
+    - apiVersion: <string> # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string> # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+spec:
+  accessModes:
+    - <string>
+  dataSource:
+    apiGroup: <string>
+    kind: <string> # Required
+    name: <string> # Required
+  dataSourceRef:
+    apiGroup: <string>
+    kind: <string> # Required
+    name: <string> # Required
+    namespace: <string>
+  resources:
+    limits:
+      cpu: <Quantity>
+      memory: <Quantity>
+    requests:
+      storage: <Quantity>
+      cpu: <Quantity>
+      memory: <Quantity>
+  selector:
+    matchExpressions:
+      - key: <string> # Required
+        operator: <string> # Required
+        values:
+          - <string>
+    matchLabels:
+      app: mysql
+      environment: production
+  storageClassName: <string>
+  volumeAttributesClassName: <string>
+  volumeMode: <string>
+  # Enum: Block, Filesystem
+  volumeName: <string>
+status:
+  accessModes:
+    - <string>
+  allocatedResourceStatuses:
+    resource: status
+  allocatedResources:
+    storage: <Quantity>
+    cpu: <Quantity>
+    memory: <Quantity>
+  capacity:
+    storage: <Quantity>
+  conditions:
+    - lastProbeTime: <string>
+      lastTransitionTime: <string>
+      message: <string>
+      reason: <string>
+      status: <string> # Required
+      type: <string> # Required
+  currentVolumeAttributesClassName: <string>
+  modifyVolumeStatus:
+    status: <string> # Required
+    # Enum: InProgress, Infeasible, Pending
+    targetVolumeAttributesClassName: <string>
+  phase: <string>
+  # Enum: Bound, Lost, Pending

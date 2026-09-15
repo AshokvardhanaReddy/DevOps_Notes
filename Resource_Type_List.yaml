@@ -1,0 +1,86 @@
+                         KUBERNETES RESOURCES
+                                │
+        ┌───────────────────────┼────────────────────────┐
+        │                       │                        │
+        ▼                       ▼                        ▼
+    FOUNDATION              WORKLOADS                NETWORKING
+        │                       │                        │
+        ▼                       ▼                        ▼
+    Namespace                 Pod                    Service
+    ConfigMap              ReplicaSet                Ingress
+    Secret                 Deployment             NetworkPolicy
+    ServiceAccount         StatefulSet
+    ResourceQuota          DaemonSet
+    LimitRange             Job
+                           CronJob
+        │
+        ▼
+      STORAGE
+        │
+        ├── PersistentVolume
+        ├── PersistentVolumeClaim
+        └── StorageClass
+
+        │
+        ▼
+       SECURITY
+        │
+        ├── Role
+        ├── RoleBinding
+        ├── ClusterRole
+        └── ClusterRoleBinding
+
+        │
+        ▼
+      SCALING
+        │
+        └── HorizontalPodAutoscaler
+
+        │
+        ▼
+      ADVANCED
+        │
+        ├── CustomResourceDefinition
+        ├── IngressClass
+        ├── PodDisruptionBudget
+        ├── PriorityClass
+        └── RuntimeClass
+
+
+
+        01. Namespace             ✅
+02. ConfigMap             ← NEXT
+03. Secret
+04. ServiceAccount
+05. ResourceQuota
+06. LimitRange
+
+07. Pod
+08. ReplicaSet
+09. Deployment
+
+10. Service
+11. Ingress
+12. NetworkPolicy
+
+13. PersistentVolume      ✅/in progress
+14. PersistentVolumeClaim
+15. StorageClass
+
+16. Role
+17. RoleBinding
+18. ClusterRole
+19. ClusterRoleBinding
+
+20. Job
+21. CronJob
+22. DaemonSet
+23. StatefulSet
+
+24. HorizontalPodAutoscaler
+25. PodDisruptionBudget
+26. PriorityClass
+
+27. IngressClass
+28. CustomResourceDefinition
+29. RuntimeClass

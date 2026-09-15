@@ -1,0 +1,784 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <string>
+  namespace: <string>
+  annotations: {}                     # map[string]string
+    owner: ashok
+    environment: development
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:                          # []string
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  labels:                              # map[string]string
+    environment: dev
+    team: backend
+    project: myapp
+  managedFields:                       # []ManagedFieldsEntry
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      # Internal Kubernetes bookkeeping.
+      # Tracks which manager owns/manages which fields.
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:                     # []OwnerReference
+    - apiVersion: <string>             # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string>                    # Required
+      name: <string>                    # Required
+      uid: <string>                     # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+spec:
+  minReadySeconds: <integer>
+  paused: <boolean>
+  progressDeadlineSeconds: <integer>
+  replicas: <integer>
+  revisionHistoryLimit: <integer>
+  selector:           # Required
+    matchExpressions:                   # []LabelSelectorRequirement
+      - key: <string>                   # Required
+        operator: <string>              # Required
+        values:                         # []string
+          - <string>
+    matchLabels: {}                     # map[string]string
+      app: myapp
+      environment: dev
+  strategy: 
+    rollingUpdate:
+      maxSurge: <IntOrString>
+      maxUnavailable: <IntOrString>
+    type: <string>
+    # Enum:
+    # Recreate
+    # RollingUpdate
+  template:          # Required
+    metadata:
+      name: <string>
+      namespace: <string>
+      annotations:                       # map[string]string
+        owner: ashok
+        environment: development
+      labels:                            # map[string]string
+        app: myapp
+        environment: dev
+      creationTimestamp: <string>
+      deletionGracePeriodSeconds: <integer>
+      deletionTimestamp: <string>
+      finalizers:                         # []string
+        - <string>
+      generateName: <string>
+      generation: <integer>
+      managedFields:                      # []ManagedFieldsEntry
+        - apiVersion: <string>
+          fieldsType: <string>
+          fieldsV1: <FieldsV1>
+          manager: <string>
+          operation: <string>
+          subresource: <string>
+          time: <string>
+      ownerReferences:                    # []OwnerReference
+        - apiVersion: <string>            # Required
+          blockOwnerDeletion: <boolean>
+          controller: <boolean>
+          kind: <string>                   # Required
+          name: <string>                   # Required
+          uid: <string>                    # Required
+      resourceVersion: <string>
+      selfLink: <string>
+      uid: <string>
+    spec:
+      activeDeadlineSeconds: <integer>
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # []PreferredSchedulingTerm
+            - preference: <NodeSelectorTerm>       # Required
+              matchExpressions:                    # []NodeSelectorRequirement
+                - key: <string>                    # Required
+                  operator: <string>               # Required
+                  # Enum:
+                  # DoesNotExist
+                  # Exists
+                  # Gt
+                  # In
+                  # ...
+                  values:                           # []string
+                    - <string>
+              matchFields:                         # []NodeSelectorRequirement
+                - key: <string>                    # Required
+                  operator: <string>               # Required
+                  # Enum:
+                  # DoesNotExist
+                  # Exists
+                  # Gt
+                  # In
+                  # ...
+                  values:                           # []string
+                    - <string>
+              weight: <integer>                     # Required
+          requiredDuringSchedulingIgnoredDuringExecution:
+            # NodeSelector
+            nodeSelectorTerms:                      # []NodeSelectorTerm
+              - matchExpressions:                   # []NodeSelectorRequirement
+                  - key: <string>                   # Required
+                    operator: <string>              # Required
+                    values:                         # []string
+                      - <string>
+                matchFields:                        # []NodeSelectorRequirement
+                  - key: <string>                   # Required
+                    operator: <string>              # Required
+                    values:                         # []string
+                      - <string>
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # []WeightedPodAffinityTerm
+            - podAffinityTerm:   # Required
+              labelSelector:
+                matchExpressions:                   # []LabelSelectorRequirement
+                  - key: <string>                   # Required
+                    operator: <string>              # Required
+                    values:                         # []string
+                      - <string>
+                matchLabels: {}                     # map[string]string
+                  app: myapp
+              matchLabelKeys:                      # []string
+                - <string>
+              mismatchLabelKeys:                   # []string
+                - <string>
+              namespaceSelector: <LabelSelector>
+              namespaces:                          # []string
+                - <string>
+              topologyKey: <string>                # Required
+              weight: <integer>                   # Required
+          requiredDuringSchedulingIgnoredDuringExecution:
+            # []PodAffinityTerm
+            - labelSelector: <LabelSelector>
+              matchExpressions:                    # []LabelSelectorRequirement
+                - key: <string>                    # Required
+                  operator: <string>               # Required
+                  values:                          # []string
+                    - <string>
+              matchLabels: {}                      # map[string]string
+                app: myapp
+              matchLabelKeys:                      # []string
+                - <string>
+              mismatchLabelKeys:                   # []string
+                - <string>
+              namespaceSelector: <LabelSelector>
+              namespaces:                          # []string
+                - <string>
+              topologyKey: <string>                # Required
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            # []WeightedPodAffinityTerm
+            - podAffinityTerm: <PodAffinityTerm>   # Required
+              labelSelector: <LabelSelector>
+                matchExpressions:                   # []LabelSelectorRequirement
+                  - key: <string>                   # Required
+                    operator: <string>              # Required
+                    values:                         # []string
+                      - <string>
+                matchLabels: {}                     # map[string]string
+                  app: myapp
+              matchLabelKeys:                      # []string
+                - <string>
+              mismatchLabelKeys:                   # []string
+                - <string>
+              namespaceSelector: <LabelSelector>
+              namespaces:                          # []string
+                - <string>
+              topologyKey: <string>                # Required
+              weight: <integer>                   # Required
+          requiredDuringSchedulingIgnoredDuringExecution:
+            # []PodAffinityTerm
+            - labelSelector: <LabelSelector>
+              matchExpressions:                    # []LabelSelectorRequirement
+                - key: <string>                    # Required
+                  operator: <string>               # Required
+                  values:                          # []string
+                    - <string>
+              matchLabels: {}                      # map[string]string
+                app: myapp
+              matchLabelKeys:                      # []string
+                - <string>
+              mismatchLabelKeys:                   # []string
+                - <string>
+              namespaceSelector: <LabelSelector>
+              namespaces:                          # []string
+                - <string>
+              topologyKey: <string>                # Required
+      automountServiceAccountToken: <boolean>
+      dnsPolicy: <string>
+      # Enum:
+      # ClusterFirst
+      # ClusterFirstWithHostNet
+      # Default
+      # None
+      enableServiceLinks: <boolean>
+      hostIPC: <boolean>
+      hostNetwork: <boolean>
+      hostPID: <boolean>
+      hostUsers: <boolean>
+      hostname: <string>
+      hostnameOverride: <string>
+      nodeName: <string>
+      nodeSelector: {}                    # map[string]string
+        key: value
+      os: <PodOS>
+        name: <string>                    # Required
+      overhead: {}                        # map[string]Quantity
+        cpu: <Quantity>
+        memory: <Quantity>
+      preemptionPolicy: <string>
+      # Enum:
+      # Never
+      # PreemptLowerPriority
+      priority: <integer>
+      priorityClassName: <string>
+      readinessGates:                     # []PodReadinessGate
+        - conditionType: <string>         # Required
+      resourceClaims:                     # []PodResourceClaim
+        - name: <string>                  # Required
+          resourceClaimName: <string>
+          resourceClaimTemplateName: <string>
+      resources:
+        claims:                            # []ResourceClaim
+          - name: <string>                 # Required
+            request: <string>
+        limits: {}                         # map[string]Quantity
+          cpu: <Quantity>
+          memory: <Quantity>
+        requests: {}                       # map[string]Quantity
+          cpu: <Quantity>
+          memory: <Quantity>
+      restartPolicy: <string>
+      # Enum:
+      # Always
+      # Never
+      # OnFailure
+      runtimeClassName: <string>
+      schedulerName: <string>
+      schedulingGates:                    # []PodSchedulingGate
+        - name: <string>                  # Required
+      securityContext:
+        appArmorProfile: <AppArmorProfile>
+          localhostProfile: <string>
+          type: <string>                   # Required
+          # Enum:
+          # Localhost
+          # RuntimeDefault
+          # Unconfined
+        fsGroup: <integer>
+        fsGroupChangePolicy: <string>
+        # Enum:
+        # Always
+        # OnRootMismatch
+        runAsGroup: <integer>
+        runAsNonRoot: <boolean>
+        runAsUser: <integer>
+        seLinuxChangePolicy: <string>
+        seLinuxOptions:
+          level: <string>
+          role: <string>
+          type: <string>
+          user: <string>
+        seccompProfile: 
+          localhostProfile: <string>
+          type: <string>                   # Required
+          # Enum:
+          # Localhost
+          # RuntimeDefault
+          # Unconfined
+        supplementalGroups:               # []integer
+          - <integer>
+        supplementalGroupsPolicy: <string>
+        # Enum:
+        # Merge
+        # Strict
+        sysctls:                           # []Sysctl
+          - name: <string>                 # Required
+            value: <string>                # Required
+        windowsOptions:
+          gmsaCredentialSpec: <string>
+          gmsaCredentialSpecName: <string>
+          hostProcess: <boolean>
+          runAsUserName: <string>
+      serviceAccount: <string>
+      serviceAccountName: <string>
+      setHostnameAsFQDN: <boolean>
+      shareProcessNamespace: <boolean>
+      subdomain: <string>
+      terminationGracePeriodSeconds: <integer>
+      tolerations:                         # []Toleration
+        - effect: <string>
+          # Enum:
+          # NoExecute
+          # NoSchedule
+          # PreferNoSchedule
+          key: <string>
+          operator: <string>
+          # Enum:
+          # Equal
+          # Exists
+          # Gt
+          # Lt
+          tolerationSeconds: <integer>
+          value: <string>
+      topologySpreadConstraints:           # []TopologySpreadConstraint
+        - labelSelector: <LabelSelector>
+            matchExpressions:               # []LabelSelectorRequirement
+              - key: <string>               # Required
+                operator: <string>          # Required
+                values:                     # []string
+                  - <string>
+            matchLabels: {}                 # map[string]string
+              app: myapp
+          matchLabelKeys:                   # []string
+            - <string>
+          maxSkew: <integer>                # Required
+          minDomains: <integer>
+          nodeAffinityPolicy: <string>
+          # Enum:
+          # Honor
+          # Ignore
+          nodeTaintsPolicy: <string>
+          # Enum:
+          # Honor
+          # Ignore
+          topologyKey: <string>             # Required
+          whenUnsatisfiable: <string>       # Required
+          # Enum:
+          # DoNotSchedule
+          # ScheduleAnyway
+      containers:                           # []Container
+        # Required
+        - name: <string>                    # Required
+          image: <string>
+          imagePullPolicy: <string>
+          # Enum:
+          # Always
+          # IfNotPresent
+          # Never
+          command:                          # []string
+            - <string>
+          args:                             # []string
+            - <string>
+          env:                              # []EnvVar
+            - name: <string>                # Required
+              value: <string>
+              valueFrom: <EnvVarSource>
+                configMapKeyRef: <ConfigMapKeySelector>
+                  key: <string>             # Required
+                  name: <string>
+                  optional: <boolean>
+                fieldRef: <ObjectFieldSelector>
+                  apiVersion: <string>
+                  fieldPath: <string>       # Required
+                fileKeyRef: <FileKeySelector>
+                  key: <string>             # Required
+                  optional: <boolean>
+                  path: <string>            # Required
+                  volumeName: <string>      # Required
+                resourceFieldRef: <ResourceFieldSelector>
+                  containerName: <string>
+                  divisor: <Quantity>
+                  resource: <string>        # Required
+                secretKeyRef: <SecretKeySelector>
+                  key: <string>             # Required
+                  name: <string>
+                  optional: <boolean>
+          envFrom:                          # []EnvFromSource
+            - configMapRef: <ConfigMapEnvSource>
+                name: <string>
+                optional: <boolean>
+              prefix: <string>
+              secretRef: <SecretEnvSource>
+                name: <string>
+                optional: <boolean>
+          ports:                            # []ContainerPort
+            - containerPort: <integer>      # Required
+              hostIP: <string>
+              hostPort: <integer>
+              name: <string>
+              protocol: <string>
+              # Enum:
+              # SCTP
+              # TCP
+              # UDP
+          lifecycle: <Lifecycle>
+            postStart: <LifecycleHandler>
+              exec: <ExecAction>
+                command:                    # []string
+                  - <string>
+              httpGet: <HTTPGetAction>
+                host: <string>
+                httpHeaders:                # []HTTPHeader
+                  - name: <string>          # Required
+                    value: <string>         # Required
+                path: <string>
+                port: <IntOrString>          # Required
+                scheme: <string>
+                # Enum:
+                # HTTP
+                # HTTPS
+              sleep: <SleepAction>
+                seconds: <integer>           # Required
+              tcpSocket: <TCPSocketAction>
+                host: <string>
+                port: <IntOrString>          # Required
+            preStop: <LifecycleHandler>
+              exec: <ExecAction>
+                command:
+                  - <string>
+              httpGet: <HTTPGetAction>
+                host: <string>
+                httpHeaders:
+                  - name: <string>           # Required
+                    value: <string>          # Required
+                path: <string>
+                port: <IntOrString>           # Required
+                scheme: <string>
+                # Enum:
+                # HTTP
+                # HTTPS
+              sleep: <SleepAction>
+                seconds: <integer>            # Required
+              tcpSocket: <TCPSocketAction>
+                host: <string>
+                port: <IntOrString>           # Required
+            stopSignal: <string>
+            # Enum:
+            # SIGABRT
+            # SIGALRM
+            # SIGBUS
+            # SIGCHLD
+            # ...
+          livenessProbe: <Probe>
+            exec: <ExecAction>
+              command:
+                - <string>
+            failureThreshold: <integer>
+            grpc: <GRPCAction>
+              port: <integer>                 # Required
+              service: <string>
+            httpGet: <HTTPGetAction>
+              host: <string>
+              httpHeaders:
+                - name: <string>              # Required
+                  value: <string>             # Required
+              path: <string>
+              port: <IntOrString>              # Required
+              scheme: <string>
+              # Enum:
+              # HTTP
+              # HTTPS
+            initialDelaySeconds: <integer>
+            periodSeconds: <integer>
+            successThreshold: <integer>
+            tcpSocket: <TCPSocketAction>
+              host: <string>
+              port: <IntOrString>              # Required
+            terminationGracePeriodSeconds: <integer>
+            timeoutSeconds: <integer>
+          readinessProbe: <Probe>
+            exec: <ExecAction>
+              command:
+                - <string>
+            failureThreshold: <integer>
+            grpc: <GRPCAction>
+              port: <integer>                   # Required
+              service: <string>
+            httpGet: <HTTPGetAction>
+              host: <string>
+              httpHeaders:
+                - name: <string>                # Required
+                  value: <string>               # Required
+              path: <string>
+              port: <IntOrString>                # Required
+              scheme: <string>
+              # Enum:
+              # HTTP
+              # HTTPS
+            initialDelaySeconds: <integer>
+            periodSeconds: <integer>
+            successThreshold: <integer>
+            tcpSocket: <TCPSocketAction>
+              host: <string>
+              port: <IntOrString>                # Required
+            terminationGracePeriodSeconds: <integer>
+            timeoutSeconds: <integer>
+          startupProbe: <Probe>
+            exec: <ExecAction>
+              command:
+                - <string>
+            failureThreshold: <integer>
+            grpc: <GRPCAction>
+              port: <integer>                    # Required
+              service: <string>
+            httpGet: <HTTPGetAction>
+              host: <string>
+              httpHeaders:
+                - name: <string>                 # Required
+                  value: <string>                # Required
+              path: <string>
+              port: <IntOrString>                 # Required
+              scheme: <string>
+              # Enum:
+              # HTTP
+              # HTTPS
+            initialDelaySeconds: <integer>
+            periodSeconds: <integer>
+            successThreshold: <integer>
+            tcpSocket: <TCPSocketAction>
+              host: <string>
+              port: <IntOrString>                 # Required
+            terminationGracePeriodSeconds: <integer>
+            timeoutSeconds: <integer>
+          resources: <ResourceRequirements>
+            claims:                              # []ResourceClaim
+              - name: <string>                   # Required
+                request: <string>
+            limits: {}                           # map[string]Quantity
+              cpu: <Quantity>
+              memory: <Quantity>
+            requests: {}                         # map[string]Quantity
+              cpu: <Quantity>
+              memory: <Quantity>
+          restartPolicy: <string>
+          restartPolicyRules:                    # []ContainerRestartRule
+            - action: <string>                   # Required
+              exitCodes: <ContainerRestartRuleOnExitCodes>
+                operator: <string>               # Required
+                values:                          # []integer
+                  - <integer>
+          securityContext: <SecurityContext>
+            allowPrivilegeEscalation: <boolean>
+            privileged: <boolean>
+            readOnlyRootFilesystem: <boolean>
+            runAsGroup: <integer>
+            runAsNonRoot: <boolean>
+            runAsUser: <integer>
+          stdin: <boolean>
+          stdinOnce: <boolean>
+          terminationMessagePath: <string>
+          terminationMessagePolicy: <string>
+          # Enum:
+          # FallbackToLogsOnError
+          # File
+          tty: <boolean>
+          volumeDevices:                        # []VolumeDevice
+            - devicePath: <string>              # Required
+              name: <string>                    # Required
+          volumeMounts:                         # []VolumeMount
+            - mountPath: <string>               # Required
+              mountPropagation: <string>
+              # Enum:
+              # Bidirectional
+              # HostToContainer
+              # None
+              name: <string>                    # Required
+              readOnly: <boolean>
+              recursiveReadOnly: <string>
+              subPath: <string>
+              subPathExpr: <string>
+          workingDir: <string>
+      initContainers:                         # []Container
+        - name: <string>                       # Required
+          image: <string>
+          imagePullPolicy: <string>
+          command:
+            - <string>
+          args:
+            - <string>
+          env:
+            - name: <string>                   # Required
+              value: <string>
+              valueFrom: <EnvVarSource>
+          envFrom:
+            - configMapRef:
+                name: <string>
+                optional: <boolean>
+              prefix: <string>
+              secretRef:
+                name: <string>
+                optional: <boolean>
+          ports:
+            - containerPort: <integer>          # Required
+              hostIP: <string>
+              hostPort: <integer>
+              name: <string>
+              protocol: <string>
+              # Enum:
+              # SCTP
+              # TCP
+              # UDP
+          lifecycle: <Lifecycle>
+          livenessProbe: <Probe>
+          readinessProbe: <Probe>
+          startupProbe: <Probe>
+          resources: <ResourceRequirements>
+          restartPolicy: <string>
+          securityContext: <SecurityContext>
+          stdin: <boolean>
+          stdinOnce: <boolean>
+          tty: <boolean>
+          terminationMessagePath: <string>
+          terminationMessagePolicy: <string>
+          volumeDevices:
+            - devicePath: <string>              # Required
+              name: <string>                    # Required
+          volumeMounts:
+            - mountPath: <string>               # Required
+              name: <string>                    # Required
+          workingDir: <string>
+      ephemeralContainers:                    # []EphemeralContainer
+        - name: <string>                       # Required
+          image: <string>
+          imagePullPolicy: <string>
+          command:
+            - <string>
+          args:
+            - <string>
+          targetContainerName: <string>
+          env:
+            - name: <string>                   # Required
+              value: <string>
+          envFrom:
+            - configMapRef:
+                name: <string>
+                optional: <boolean>
+              prefix: <string>
+              secretRef:
+                name: <string>
+                optional: <boolean>
+          ports:
+            - containerPort: <integer>          # Required
+              hostIP: <string>
+              hostPort: <integer>
+              name: <string>
+              protocol: <string>
+          lifecycle: <Lifecycle>
+          livenessProbe: <Probe>
+          readinessProbe: <Probe>
+          startupProbe: <Probe>
+          resources: <ResourceRequirements>
+          securityContext: <SecurityContext>
+          stdin: <boolean>
+          stdinOnce: <boolean>
+          tty: <boolean>
+          terminationMessagePath: <string>
+          terminationMessagePolicy: <string>
+          volumeDevices:
+            - devicePath: <string>              # Required
+              name: <string>                    # Required
+          volumeMounts:
+            - mountPath: <string>               # Required
+              name: <string>                    # Required
+          workingDir: <string>
+      imagePullSecrets:                       # []LocalObjectReference
+        - name: <string>
+      hostAliases:                            # []HostAlias
+        - ip: <string>                         # Required
+          hostnames:                           # []string
+            - <string>
+      volumes:                                # []Volume
+        - name: <string>                      # Required
+          configMap: <ConfigMapVolumeSource>
+            defaultMode: <integer>
+            items:                            # []KeyToPath
+              - key: <string>                 # Required
+                mode: <integer>
+                path: <string>                # Required
+            name: <string>
+            optional: <boolean>
+          secret: <SecretVolumeSource>
+            defaultMode: <integer>
+            items:
+              - key: <string>                 # Required
+                mode: <integer>
+                path: <string>                # Required
+            optional: <boolean>
+            secretName: <string>
+          emptyDir: <EmptyDirVolumeSource>
+            medium: <string>
+            sizeLimit: <Quantity>
+          hostPath: <HostPathVolumeSource>
+            path: <string>                    # Required
+            type: <string>
+            # Enum:
+            # ""
+            # BlockDevice
+            # CharDevice
+            # Directory
+            # ...
+          persistentVolumeClaim:
+            <PersistentVolumeClaimVolumeSource>
+            claimName: <string>               # Required
+            readOnly: <boolean>
+          nfs: <NFSVolumeSource>
+            path: <string>                    # Required
+            readOnly: <boolean>
+            server: <string>                  # Required
+          csi: <CSIVolumeSource>
+            driver: <string>                  # Required
+            fsType: <string>
+            nodePublishSecretRef:
+              <LocalObjectReference>
+              name: <string>
+            readOnly: <boolean>
+            volumeAttributes:                 # map[string]string
+              key: value
+          projected: <ProjectedVolumeSource>
+            defaultMode: <integer>
+            sources:                          # []VolumeProjection
+              - configMap: <ConfigMapProjection>
+                  items:
+                    - key: <string>            # Required
+                      mode: <integer>
+                      path: <string>           # Required
+                  name: <string>
+                  optional: <boolean>
+                secret: <SecretProjection>
+                  items:
+                    - key: <string>            # Required
+                      mode: <integer>
+                      path: <string>           # Required
+                  name: <string>
+                  optional: <boolean>
+                downwardAPI: <DownwardAPIProjection>
+                  items:
+                    - fieldRef: <ObjectFieldSelector>
+                        apiVersion: <string>
+                        fieldPath: <string>    # Required
+                      mode: <integer>
+                      path: <string>           # Required
+                serviceAccountToken:
+                  <ServiceAccountTokenProjection>
+                  audience: <string>
+                  expirationSeconds: <integer>
+                  path: <string>               # Required
+status:
+  availableReplicas: <integer>
+  collisionCount: <integer>
+  conditions:                              # []DeploymentCondition
+    - lastTransitionTime: <string>
+      lastUpdateTime: <string>
+      message: <string>
+      reason: <string>
+      status: <string>                     # Required
+      type: <string>                       # Required
+  observedGeneration: <integer>
+  readyReplicas: <integer>
+  replicas: <integer>
+  terminatingReplicas: <integer>
+  unavailableReplicas: <integer>
+  updatedReplicas: <integer>

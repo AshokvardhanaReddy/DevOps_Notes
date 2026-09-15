@@ -1,0 +1,75 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: <string>
+  namespace: <string>
+  annotations: <map[string]string>
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  labels: <map[string]string>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:
+    - apiVersion: <string> # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string> # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+spec:
+  defaultBackend:
+    resource:
+      apiGroup: <string>
+      kind: <string> # Required
+      name: <string> # Required
+    service:
+      name: <string> # Required
+      port:
+        name: <string>
+        number: <integer>
+  ingressClassName: <string>
+  rules:
+    - host: <string>
+      http:
+        paths:
+          - backend: # Required
+              resource:
+                apiGroup: <string>
+                kind: <string> # Required
+                name: <string> # Required
+              service:
+                name: <string> # Required
+                port:
+                  name: <string>
+                  number: <integer>
+            path: <string>
+            pathType: <string> # Required
+            # Enum: Exact, ImplementationSpecific, Prefix
+  tls:
+    - hosts:
+        - <string>
+      secretName: <string>
+status:
+  loadBalancer:
+    ingress:
+      - hostname: <string>
+        ip: <string>
+        ports:
+          - error: <string>
+            port: <integer> # Required
+            protocol: <string> # Required
+            # Enum: SCTP, TCP, UDP

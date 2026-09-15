@@ -1,0 +1,1382 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations: <map[string]string>
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  labels: <map[string]string>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  name: <string>
+  namespace: <string>
+  ownerReferences:
+    - apiVersion: <string> # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string> # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+spec:
+  concurrencyPolicy: <string>
+  # Enum: Allow, Forbid, Replace
+  failedJobsHistoryLimit: <integer>
+  jobTemplate: <JobTemplateSpec> # Required
+    metadata:
+      annotations: <map[string]string>
+      creationTimestamp: <string>
+      deletionGracePeriodSeconds: <integer>
+      deletionTimestamp: <string>
+      finalizers:
+        - <string>
+      generateName: <string>
+      generation: <integer>
+      labels: <map[string]string>
+      managedFields:
+        - apiVersion: <string>
+          fieldsType: <string>
+          fieldsV1: <FieldsV1>
+          manager: <string>
+          operation: <string>
+          subresource: <string>
+          time: <string>
+      name: <string>
+      namespace: <string>
+      ownerReferences:
+        - apiVersion: <string> # Required
+          blockOwnerDeletion: <boolean>
+          controller: <boolean>
+          kind: <string> # Required
+          name: <string> # Required
+          uid: <string> # Required
+      resourceVersion: <string>
+      selfLink: <string>
+      uid: <string>
+    spec: <JobSpec>
+      activeDeadlineSeconds: <integer>
+      backoffLimit: <integer>
+      backoffLimitPerIndex: <integer>
+      completionMode: <string>
+      # Enum: Indexed, NonIndexed
+      completions: <integer>
+      managedBy: <string>
+      manualSelector: <boolean>
+      maxFailedIndexes: <integer>
+      parallelism: <integer>
+      podFailurePolicy: <PodFailurePolicy>
+        rules: <[]PodFailurePolicyRule> # Required
+          - action: <string> # Required
+            # Enum: Count, FailIndex, FailJob, Ignore
+            onExitCodes: <PodFailurePolicyOnExitCodesRequirement>
+              containerName: <string>
+              operator: <string> # Required
+              # Enum: In, NotIn
+              values:
+                - <integer> # Required
+            onPodConditions:
+              - status: <string>
+                type: <string> # Required
+      podReplacementPolicy: <string>
+      # Enum: Failed, TerminatingOrFailed
+      selector: <LabelSelector>
+        matchExpressions:
+          - key: <string> # Required
+            operator: <string> # Required
+            values:
+              - <string>
+        matchLabels: <map[string]string>
+      successPolicy: <SuccessPolicy>
+        rules: <[]SuccessPolicyRule> # Required
+          - succeededCount: <integer>
+            succeededIndexes: <string>
+      suspend: <boolean>
+      template: <PodTemplateSpec> # Required
+        metadata:
+          annotations: <map[string]string>
+          creationTimestamp: <string>
+          deletionGracePeriodSeconds: <integer>
+          deletionTimestamp: <string>
+          finalizers:
+            - <string>
+          generateName: <string>
+          generation: <integer>
+          labels: <map[string]string>
+          managedFields:
+            - apiVersion: <string>
+              fieldsType: <string>
+              fieldsV1: <FieldsV1>
+              manager: <string>
+              operation: <string>
+              subresource: <string>
+              time: <string>
+          name: <string>
+          namespace: <string>
+          ownerReferences:
+            - apiVersion: <string> # Required
+              blockOwnerDeletion: <boolean>
+              controller: <boolean>
+              kind: <string> # Required
+              name: <string> # Required
+              uid: <string> # Required
+          resourceVersion: <string>
+          selfLink: <string>
+          uid: <string>
+        spec: <PodSpec>
+          activeDeadlineSeconds: <integer>
+          affinity: <Affinity>
+            nodeAffinity: <NodeAffinity>
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - preference: <NodeSelectorTerm> # Required
+                  matchExpressions:
+                    - key: <string> # Required
+                      operator: <string> # Required
+                      # Enum: DoesNotExist, Exists, Gt, In, ....
+                      values:
+                        - <string>
+                  matchFields:
+                    - key: <string> # Required
+                      operator: <string> # Required
+                      # Enum: DoesNotExist, Exists, Gt, In, ....
+                      values:
+                        - <string>
+                  weight: <integer> # Required
+              requiredDuringSchedulingIgnoredDuringExecution: <NodeSelector>
+                nodeSelectorTerms: <[]NodeSelectorTerm> # Required
+                  - matchExpressions:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        # Enum: DoesNotExist, Exists, Gt, In, ....
+                        values:
+                          - <string>
+                    matchFields:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        # Enum: DoesNotExist, Exists, Gt, In, ....
+                        values:
+                          - <string>
+            podAffinity: <PodAffinity>
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - podAffinityTerm: <PodAffinityTerm> # Required
+                  labelSelector: <LabelSelector>
+                    matchExpressions:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        values:
+                          - <string>
+                    matchLabels: <map[string]string>
+                  matchLabelKeys:
+                    - <string>
+                  mismatchLabelKeys:
+                    - <string>
+                  namespaceSelector: <LabelSelector>
+                    matchExpressions:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        values:
+                          - <string>
+                    matchLabels: <map[string]string>
+                  namespaces:
+                    - <string>
+                  topologyKey: <string> # Required
+                  weight: <integer> # Required
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector: <LabelSelector>
+                  matchExpressions:
+                    - key: <string> # Required
+                      operator: <string> # Required
+                      values:
+                        - <string>
+                  matchLabels: <map[string]string>
+                  matchLabelKeys:
+                    - <string>
+                  mismatchLabelKeys:
+                    - <string>
+                  namespaceSelector: <LabelSelector>
+                    matchExpressions:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        values:
+                          - <string>
+                    matchLabels: <map[string]string>
+                  namespaces:
+                    - <string>
+                  topologyKey: <string> # Required
+            podAntiAffinity: <PodAntiAffinity>
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - podAffinityTerm: <PodAffinityTerm> # Required
+                  labelSelector: <LabelSelector>
+                    matchExpressions:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        values:
+                          - <string>
+                    matchLabels: <map[string]string>
+                  matchLabelKeys:
+                    - <string>
+                  mismatchLabelKeys:
+                    - <string>
+                  namespaceSelector: <LabelSelector>
+                    matchExpressions:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        values:
+                          - <string>
+                    matchLabels: <map[string]string>
+                  namespaces:
+                    - <string>
+                  topologyKey: <string> # Required
+                  weight: <integer> # Required
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector: <LabelSelector>
+                  matchExpressions:
+                    - key: <string> # Required
+                      operator: <string> # Required
+                      values:
+                        - <string>
+                  matchLabels: <map[string]string>
+                  matchLabelKeys:
+                    - <string>
+                  mismatchLabelKeys:
+                    - <string>
+                  namespaceSelector: <LabelSelector>
+                    matchExpressions:
+                      - key: <string> # Required
+                        operator: <string> # Required
+                        values:
+                          - <string>
+                    matchLabels: <map[string]string>
+                  namespaces:
+                    - <string>
+                  topologyKey: <string> # Required
+          automountServiceAccountToken: <boolean>
+          containers: <[]Container> # Required
+            - args:
+                - <string>
+              command:
+                - <string>
+              env:
+                - name: <string> # Required
+                  value: <string>
+                  valueFrom: <EnvVarSource>
+                    configMapKeyRef: <ConfigMapKeySelector>
+                      key: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+                    fieldRef: <ObjectFieldSelector>
+                      apiVersion: <string>
+                      fieldPath: <string> # Required
+                    fileKeyRef: <FileKeySelector>
+                      key: <string> # Required
+                      optional: <boolean>
+                      path: <string> # Required
+                      volumeName: <string> # Required
+                    resourceFieldRef: <ResourceFieldSelector>
+                      containerName: <string>
+                      divisor: <Quantity>
+                      resource: <string> # Required
+                    secretKeyRef: <SecretKeySelector>
+                      key: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+              envFrom:
+                - configMapRef: <ConfigMapEnvSource>
+                    name: <string>
+                    optional: <boolean>
+                  prefix: <string>
+                  secretRef: <SecretEnvSource>
+                    name: <string>
+                    optional: <boolean>
+              image: <string>
+              imagePullPolicy: <string>
+              # Enum: Always, IfNotPresent, Never
+              lifecycle: <Lifecycle>
+                postStart: <LifecycleHandler>
+                  exec: <ExecAction>
+                    command:
+                      - <string>
+                  httpGet: <HTTPGetAction>
+                    host: <string>
+                    httpHeaders:
+                      - name: <string> # Required
+                        value: <string> # Required
+                    path: <string>
+                    port: <IntOrString> # Required
+                    scheme: <string>
+                    # Enum: HTTP, HTTPS
+                  sleep: <SleepAction>
+                    seconds: <integer> # Required
+                  tcpSocket: <TCPSocketAction>
+                    host: <string>
+                    port: <IntOrString> # Required
+                preStop: <LifecycleHandler>
+                  exec: <ExecAction>
+                    command:
+                      - <string>
+                  httpGet: <HTTPGetAction>
+                    host: <string>
+                    httpHeaders:
+                      - name: <string> # Required
+                        value: <string> # Required
+                    path: <string>
+                    port: <IntOrString> # Required
+                    scheme: <string>
+                    # Enum: HTTP, HTTPS
+                  sleep: <SleepAction>
+                    seconds: <integer> # Required
+                  tcpSocket: <TCPSocketAction>
+                    host: <string>
+                    port: <IntOrString> # Required
+                stopSignal: <string>
+                # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+              livenessProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              name: <string> # Required
+              ports:
+                - containerPort: <integer> # Required
+                  hostIP: <string>
+                  hostPort: <integer>
+                  name: <string>
+                  protocol: <string>
+                  # Enum: SCTP, TCP, UDP
+              readinessProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              resizePolicy:
+                - resourceName: <string> # Required
+                  restartPolicy: <string> # Required
+              resources: <ResourceRequirements>
+                claims:
+                  - name: <string> # Required
+                    request: <string>
+                limits: <map[string]Quantity>
+                requests: <map[string]Quantity>
+              restartPolicy: <string>
+              restartPolicyRules:
+                - action: <string> # Required
+                  exitCodes: <ContainerRestartRuleOnExitCodes>
+                    operator: <string> # Required
+                    values:
+                      - <integer>
+              securityContext: <SecurityContext>
+                allowPrivilegeEscalation: <boolean>
+                appArmorProfile: <AppArmorProfile>
+                  localhostProfile: <string>
+                  type: <string> # Required
+                  # Enum: Localhost, RuntimeDefault, Unconfined
+                capabilities: <Capabilities>
+                  add:
+                    - <string>
+                  drop:
+                    - <string>
+                privileged: <boolean>
+                procMount: <string>
+                # Enum: Default, Unmasked
+                readOnlyRootFilesystem: <boolean>
+                runAsGroup: <integer>
+                runAsNonRoot: <boolean>
+                runAsUser: <integer>
+                seLinuxOptions: <SELinuxOptions>
+                  level: <string>
+                  role: <string>
+                  type: <string>
+                  user: <string>
+                seccompProfile: <SeccompProfile>
+                  localhostProfile: <string>
+                  type: <string> # Required
+                  # Enum: Localhost, RuntimeDefault, Unconfined
+                windowsOptions: <WindowsSecurityContextOptions>
+                  gmsaCredentialSpec: <string>
+                  gmsaCredentialSpecName: <string>
+                  hostProcess: <boolean>
+                  runAsUserName: <string>
+              startupProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              stdin: <boolean>
+              stdinOnce: <boolean>
+              terminationMessagePath: <string>
+              terminationMessagePolicy: <string>
+              # Enum: FallbackToLogsOnError, File
+              tty: <boolean>
+              volumeDevices:
+                - devicePath: <string> # Required
+                  name: <string> # Required
+              volumeMounts:
+                - mountPath: <string> # Required
+                  mountPropagation: <string>
+                  # Enum: Bidirectional, HostToContainer, None
+                  name: <string> # Required
+                  readOnly: <boolean>
+                  recursiveReadOnly: <string>
+                  subPath: <string>
+                  subPathExpr: <string>
+              workingDir: <string>
+          dnsConfig: <PodDNSConfig>
+            nameservers:
+              - <string>
+            options:
+              - name: <string>
+                value: <string>
+            searches:
+              - <string>
+          dnsPolicy: <string>
+          # Enum: ClusterFirst, ClusterFirstWithHostNet, Default, None
+          enableServiceLinks: <boolean>
+          ephemeralContainers: <[]EphemeralContainer>
+            - args:
+                - <string>
+              command:
+                - <string>
+              env:
+                - name: <string> # Required
+                  value: <string>
+                  valueFrom: <EnvVarSource>
+                    configMapKeyRef: <ConfigMapKeySelector>
+                      key: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+                    fieldRef: <ObjectFieldSelector>
+                      apiVersion: <string>
+                      fieldPath: <string> # Required
+                    fileKeyRef: <FileKeySelector>
+                      key: <string> # Required
+                      optional: <boolean>
+                      path: <string> # Required
+                      volumeName: <string> # Required
+                    resourceFieldRef: <ResourceFieldSelector>
+                      containerName: <string>
+                      divisor: <Quantity>
+                      resource: <string> # Required
+                    secretKeyRef: <SecretKeySelector>
+                      key: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+              envFrom:
+                - configMapRef: <ConfigMapEnvSource>
+                    name: <string>
+                    optional: <boolean>
+                  prefix: <string>
+                  secretRef: <SecretEnvSource>
+                    name: <string>
+                    optional: <boolean>
+              image: <string>
+              imagePullPolicy: <string>
+              # Enum: Always, IfNotPresent, Never
+              lifecycle: <Lifecycle>
+                postStart: <LifecycleHandler>
+                  exec: <ExecAction>
+                    command:
+                      - <string>
+                  httpGet: <HTTPGetAction>
+                    host: <string>
+                    httpHeaders:
+                      - name: <string> # Required
+                        value: <string> # Required
+                    path: <string>
+                    port: <IntOrString> # Required
+                    scheme: <string>
+                    # Enum: HTTP, HTTPS
+                  sleep: <SleepAction>
+                    seconds: <integer> # Required
+                  tcpSocket: <TCPSocketAction>
+                    host: <string>
+                    port: <IntOrString> # Required
+                preStop: <LifecycleHandler>
+                  exec: <ExecAction>
+                    command:
+                      - <string>
+                  httpGet: <HTTPGetAction>
+                    host: <string>
+                    httpHeaders:
+                      - name: <string> # Required
+                        value: <string> # Required
+                    path: <string>
+                    port: <IntOrString> # Required
+                    scheme: <string>
+                    # Enum: HTTP, HTTPS
+                  sleep: <SleepAction>
+                    seconds: <integer> # Required
+                  tcpSocket: <TCPSocketAction>
+                    host: <string>
+                    port: <IntOrString> # Required
+                stopSignal: <string>
+                # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+              livenessProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              name: <string> # Required
+              ports:
+                - containerPort: <integer> # Required
+                  hostIP: <string>
+                  hostPort: <integer>
+                  name: <string>
+                  protocol: <string>
+                  # Enum: SCTP, TCP, UDP
+              readinessProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              resizePolicy:
+                - resourceName: <string> # Required
+                  restartPolicy: <string> # Required
+              resources: <ResourceRequirements>
+                claims:
+                  - name: <string> # Required
+                    request: <string>
+                limits: <map[string]Quantity>
+                requests: <map[string]Quantity>
+              restartPolicy: <string>
+              restartPolicyRules:
+                - action: <string> # Required
+                  exitCodes: <ContainerRestartRuleOnExitCodes>
+                    operator: <string> # Required
+                    values:
+                      - <integer>
+              securityContext: <SecurityContext>
+                allowPrivilegeEscalation: <boolean>
+                appArmorProfile: <AppArmorProfile>
+                  localhostProfile: <string>
+                  type: <string> # Required
+                  # Enum: Localhost, RuntimeDefault, Unconfined
+                capabilities: <Capabilities>
+                  add:
+                    - <string>
+                  drop:
+                    - <string>
+                privileged: <boolean>
+                procMount: <string>
+                # Enum: Default, Unmasked
+                readOnlyRootFilesystem: <boolean>
+                runAsGroup: <integer>
+                runAsNonRoot: <boolean>
+                runAsUser: <integer>
+                seLinuxOptions: <SELinuxOptions>
+                  level: <string>
+                  role: <string>
+                  type: <string>
+                  user: <string>
+                seccompProfile: <SeccompProfile>
+                  localhostProfile: <string>
+                  type: <string> # Required
+                  # Enum: Localhost, RuntimeDefault, Unconfined
+                windowsOptions: <WindowsSecurityContextOptions>
+                  gmsaCredentialSpec: <string>
+                  gmsaCredentialSpecName: <string>
+                  hostProcess: <boolean>
+                  runAsUserName: <string>
+              startupProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              stdin: <boolean>
+              stdinOnce: <boolean>
+              targetContainerName: <string>
+              terminationMessagePath: <string>
+              terminationMessagePolicy: <string>
+              # Enum: FallbackToLogsOnError, File
+              tty: <boolean>
+              volumeDevices:
+                - devicePath: <string> # Required
+                  name: <string> # Required
+              volumeMounts:
+                - mountPath: <string> # Required
+                  mountPropagation: <string>
+                  # Enum: Bidirectional, HostToContainer, None
+                  name: <string> # Required
+                  readOnly: <boolean>
+                  recursiveReadOnly: <string>
+                  subPath: <string>
+                  subPathExpr: <string>
+              workingDir: <string>
+          hostAliases:
+            - hostnames:
+                - <string>
+              ip: <string> # Required
+          hostIPC: <boolean>
+          hostNetwork: <boolean>
+          hostPID: <boolean>
+          hostUsers: <boolean>
+          hostname: <string>
+          hostnameOverride: <string>
+          imagePullSecrets:
+            - name: <string>
+          initContainers: <[]Container>
+            - args:
+                - <string>
+              command:
+                - <string>
+              env:
+                - name: <string> # Required
+                  value: <string>
+                  valueFrom: <EnvVarSource>
+                    configMapKeyRef: <ConfigMapKeySelector>
+                      key: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+                    fieldRef: <ObjectFieldSelector>
+                      apiVersion: <string>
+                      fieldPath: <string> # Required
+                    fileKeyRef: <FileKeySelector>
+                      key: <string> # Required
+                      optional: <boolean>
+                      path: <string> # Required
+                      volumeName: <string> # Required
+                    resourceFieldRef: <ResourceFieldSelector>
+                      containerName: <string>
+                      divisor: <Quantity>
+                      resource: <string> # Required
+                    secretKeyRef: <SecretKeySelector>
+                      key: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+              envFrom:
+                - configMapRef: <ConfigMapEnvSource>
+                    name: <string>
+                    optional: <boolean>
+                  prefix: <string>
+                  secretRef: <SecretEnvSource>
+                    name: <string>
+                    optional: <boolean>
+              image: <string>
+              imagePullPolicy: <string>
+              # Enum: Always, IfNotPresent, Never
+              lifecycle: <Lifecycle>
+                postStart: <LifecycleHandler>
+                  exec: <ExecAction>
+                    command:
+                      - <string>
+                  httpGet: <HTTPGetAction>
+                    host: <string>
+                    httpHeaders:
+                      - name: <string> # Required
+                        value: <string> # Required
+                    path: <string>
+                    port: <IntOrString> # Required
+                    scheme: <string>
+                    # Enum: HTTP, HTTPS
+                  sleep: <SleepAction>
+                    seconds: <integer> # Required
+                  tcpSocket: <TCPSocketAction>
+                    host: <string>
+                    port: <IntOrString> # Required
+                preStop: <LifecycleHandler>
+                  exec: <ExecAction>
+                    command:
+                      - <string>
+                  httpGet: <HTTPGetAction>
+                    host: <string>
+                    httpHeaders:
+                      - name: <string> # Required
+                        value: <string> # Required
+                    path: <string>
+                    port: <IntOrString> # Required
+                    scheme: <string>
+                    # Enum: HTTP, HTTPS
+                  sleep: <SleepAction>
+                    seconds: <integer> # Required
+                  tcpSocket: <TCPSocketAction>
+                    host: <string>
+                    port: <IntOrString> # Required
+                stopSignal: <string>
+                # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+              livenessProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              name: <string> # Required
+              ports:
+                - containerPort: <integer> # Required
+                  hostIP: <string>
+                  hostPort: <integer>
+                  name: <string>
+                  protocol: <string>
+                  # Enum: SCTP, TCP, UDP
+              readinessProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              resizePolicy:
+                - resourceName: <string> # Required
+                  restartPolicy: <string> # Required
+              resources: <ResourceRequirements>
+                claims:
+                  - name: <string> # Required
+                    request: <string>
+                limits: <map[string]Quantity>
+                requests: <map[string]Quantity>
+              restartPolicy: <string>
+              restartPolicyRules:
+                - action: <string> # Required
+                  exitCodes: <ContainerRestartRuleOnExitCodes>
+                    operator: <string> # Required
+                    values:
+                      - <integer>
+              securityContext: <SecurityContext>
+                allowPrivilegeEscalation: <boolean>
+                appArmorProfile: <AppArmorProfile>
+                  localhostProfile: <string>
+                  type: <string> # Required
+                  # Enum: Localhost, RuntimeDefault, Unconfined
+                capabilities: <Capabilities>
+                  add:
+                    - <string>
+                  drop:
+                    - <string>
+                privileged: <boolean>
+                procMount: <string>
+                # Enum: Default, Unmasked
+                readOnlyRootFilesystem: <boolean>
+                runAsGroup: <integer>
+                runAsNonRoot: <boolean>
+                runAsUser: <integer>
+                seLinuxOptions: <SELinuxOptions>
+                  level: <string>
+                  role: <string>
+                  type: <string>
+                  user: <string>
+                seccompProfile: <SeccompProfile>
+                  localhostProfile: <string>
+                  type: <string> # Required
+                  # Enum: Localhost, RuntimeDefault, Unconfined
+                windowsOptions: <WindowsSecurityContextOptions>
+                  gmsaCredentialSpec: <string>
+                  gmsaCredentialSpecName: <string>
+                  hostProcess: <boolean>
+                  runAsUserName: <string>
+              startupProbe: <Probe>
+                exec: <ExecAction>
+                  command:
+                    - <string>
+                failureThreshold: <integer>
+                grpc: <GRPCAction>
+                  port: <integer> # Required
+                  service: <string>
+                httpGet: <HTTPGetAction>
+                  host: <string>
+                  httpHeaders:
+                    - name: <string> # Required
+                      value: <string> # Required
+                  path: <string>
+                  port: <IntOrString> # Required
+                  scheme: <string>
+                  # Enum: HTTP, HTTPS
+                initialDelaySeconds: <integer>
+                periodSeconds: <integer>
+                successThreshold: <integer>
+                tcpSocket: <TCPSocketAction>
+                  host: <string>
+                  port: <IntOrString> # Required
+                terminationGracePeriodSeconds: <integer>
+                timeoutSeconds: <integer>
+              stdin: <boolean>
+              stdinOnce: <boolean>
+              terminationMessagePath: <string>
+              terminationMessagePolicy: <string>
+              # Enum: FallbackToLogsOnError, File
+              tty: <boolean>
+              volumeDevices:
+                - devicePath: <string> # Required
+                  name: <string> # Required
+              volumeMounts:
+                - mountPath: <string> # Required
+                  mountPropagation: <string>
+                  # Enum: Bidirectional, HostToContainer, None
+                  name: <string> # Required
+                  readOnly: <boolean>
+                  recursiveReadOnly: <string>
+                  subPath: <string>
+                  subPathExpr: <string>
+              workingDir: <string>
+          nodeName: <string>
+          nodeSelector: <map[string]string>
+          os: <PodOS>
+            name: <string> # Required
+          overhead: <map[string]Quantity>
+          preemptionPolicy: <string>
+          # Enum: Never, PreemptLowerPriority
+          priority: <integer>
+          priorityClassName: <string>
+          readinessGates:
+            - conditionType: <string> # Required
+          resourceClaims:
+            - name: <string> # Required
+              resourceClaimName: <string>
+              resourceClaimTemplateName: <string>
+          resources: <ResourceRequirements>
+            claims:
+              - name: <string> # Required
+                request: <string>
+            limits: <map[string]Quantity>
+            requests: <map[string]Quantity>
+          restartPolicy: <string>
+          # Enum: Always, Never, OnFailure
+          runtimeClassName: <string>
+          schedulerName: <string>
+          schedulingGates:
+            - name: <string> # Required
+          securityContext: <PodSecurityContext>
+            appArmorProfile: <AppArmorProfile>
+              localhostProfile: <string>
+              type: <string> # Required
+              # Enum: Localhost, RuntimeDefault, Unconfined
+            fsGroup: <integer>
+            fsGroupChangePolicy: <string>
+            # Enum: Always, OnRootMismatch
+            runAsGroup: <integer>
+            runAsNonRoot: <boolean>
+            runAsUser: <integer>
+            seLinuxChangePolicy: <string>
+            seLinuxOptions: <SELinuxOptions>
+              level: <string>
+              role: <string>
+              type: <string>
+              user: <string>
+            seccompProfile: <SeccompProfile>
+              localhostProfile: <string>
+              type: <string> # Required
+              # Enum: Localhost, RuntimeDefault, Unconfined
+            supplementalGroups:
+              - <integer>
+            supplementalGroupsPolicy: <string>
+            # Enum: Merge, Strict
+            sysctls:
+              - name: <string> # Required
+                value: <string> # Required
+            windowsOptions: <WindowsSecurityContextOptions>
+              gmsaCredentialSpec: <string>
+              gmsaCredentialSpecName: <string>
+              hostProcess: <boolean>
+              runAsUserName: <string>
+          serviceAccount: <string>
+          serviceAccountName: <string>
+          setHostnameAsFQDN: <boolean>
+          shareProcessNamespace: <boolean>
+          subdomain: <string>
+          terminationGracePeriodSeconds: <integer>
+          tolerations:
+            - effect: <string>
+              # Enum: NoExecute, NoSchedule, PreferNoSchedule
+              key: <string>
+              operator: <string>
+              # Enum: Equal, Exists, Gt, Lt
+              tolerationSeconds: <integer>
+              value: <string>
+          topologySpreadConstraints:
+            - labelSelector: <LabelSelector>
+                matchExpressions:
+                  - key: <string> # Required
+                    operator: <string> # Required
+                    values:
+                      - <string>
+                matchLabels: <map[string]string>
+              matchLabelKeys:
+                - <string>
+              maxSkew: <integer> # Required
+              minDomains: <integer>
+              nodeAffinityPolicy: <string>
+              # Enum: Honor, Ignore
+              nodeTaintsPolicy: <string>
+              # Enum: Honor, Ignore
+              topologyKey: <string> # Required
+              whenUnsatisfiable: <string> # Required
+              # Enum: DoNotSchedule, ScheduleAnyway
+          volumes:
+            - awsElasticBlockStore: <AWSElasticBlockStoreVolumeSource>
+                fsType: <string>
+                partition: <integer>
+                readOnly: <boolean>
+                volumeID: <string> # Required
+              azureDisk: <AzureDiskVolumeSource>
+                cachingMode: <string>
+                # Enum: None, ReadOnly, ReadWrite
+                diskName: <string> # Required
+                diskURI: <string> # Required
+                fsType: <string>
+                kind: <string>
+                # Enum: Dedicated, Managed, Shared
+                readOnly: <boolean>
+              azureFile: <AzureFileVolumeSource>
+                readOnly: <boolean>
+                secretName: <string> # Required
+                shareName: <string> # Required
+              cephfs: <CephFSVolumeSource>
+                monitors:
+                  - <string> # Required
+                path: <string>
+                readOnly: <boolean>
+                secretFile: <string>
+                secretRef: <LocalObjectReference>
+                  name: <string>
+                user: <string>
+              cinder: <CinderVolumeSource>
+                fsType: <string>
+                readOnly: <boolean>
+                secretRef: <LocalObjectReference>
+                  name: <string>
+                volumeID: <string> # Required
+              configMap: <ConfigMapVolumeSource>
+                defaultMode: <integer>
+                items:
+                  - key: <string> # Required
+                    mode: <integer>
+                    path: <string> # Required
+                name: <string>
+                optional: <boolean>
+              csi: <CSIVolumeSource>
+                driver: <string> # Required
+                fsType: <string>
+                nodePublishSecretRef: <LocalObjectReference>
+                  name: <string>
+                readOnly: <boolean>
+                volumeAttributes: <map[string]string>
+              downwardAPI: <DownwardAPIVolumeSource>
+                defaultMode: <integer>
+                items:
+                  - fieldRef: <ObjectFieldSelector>
+                      apiVersion: <string>
+                      fieldPath: <string> # Required
+                    mode: <integer>
+                    path: <string> # Required
+                    resourceFieldRef: <ResourceFieldSelector>
+                      containerName: <string>
+                      divisor: <Quantity>
+                      resource: <string> # Required
+              emptyDir: <EmptyDirVolumeSource>
+                medium: <string>
+                sizeLimit: <Quantity>
+              ephemeral: <EphemeralVolumeSource>
+                volumeClaimTemplate: <PersistentVolumeClaimTemplate>
+                  metadata:
+                    annotations: <map[string]string>
+                    creationTimestamp: <string>
+                    deletionGracePeriodSeconds: <integer>
+                    deletionTimestamp: <string>
+                    finalizers:
+                      - <string>
+                    generateName: <string>
+                    generation: <integer>
+                    labels: <map[string]string>
+                    managedFields:
+                      - apiVersion: <string>
+                        fieldsType: <string>
+                        fieldsV1: <FieldsV1>
+                        manager: <string>
+                        operation: <string>
+                        subresource: <string>
+                        time: <string>
+                    name: <string>
+                    namespace: <string>
+                    ownerReferences:
+                      - apiVersion: <string> # Required
+                        blockOwnerDeletion: <boolean>
+                        controller: <boolean>
+                        kind: <string> # Required
+                        name: <string> # Required
+                        uid: <string> # Required
+                    resourceVersion: <string>
+                    selfLink: <string>
+                    uid: <string>
+                  spec: <PersistentVolumeClaimSpec> # Required
+                    accessModes:
+                      - <string>
+                    dataSource: <TypedLocalObjectReference>
+                      apiGroup: <string>
+                      kind: <string> # Required
+                      name: <string> # Required
+                    dataSourceRef: <TypedObjectReference>
+                      apiGroup: <string>
+                      kind: <string> # Required
+                      name: <string> # Required
+                      namespace: <string>
+                    resources: <VolumeResourceRequirements>
+                      limits: <map[string]Quantity>
+                      requests: <map[string]Quantity>
+                    selector: <LabelSelector>
+                      matchExpressions:
+                        - key: <string> # Required
+                          operator: <string> # Required
+                          values:
+                            - <string>
+                      matchLabels: <map[string]string>
+                    storageClassName: <string>
+                    volumeAttributesClassName: <string>
+                    volumeMode: <string>
+                    # Enum: Block, Filesystem
+                    volumeName: <string>
+              fc: <FCVolumeSource>
+                fsType: <string>
+                lun: <integer>
+                readOnly: <boolean>
+                targetWWNs:
+                  - <string>
+                wwids:
+                  - <string>
+              flexVolume: <FlexVolumeSource>
+                driver: <string> # Required
+                fsType: <string>
+                options: <map[string]string>
+                readOnly: <boolean>
+                secretRef: <LocalObjectReference>
+                  name: <string>
+              flocker: <FlockerVolumeSource>
+                datasetName: <string>
+                datasetUUID: <string>
+              gcePersistentDisk: <GCEPersistentDiskVolumeSource>
+                fsType: <string>
+                partition: <integer>
+                pdName: <string> # Required
+                readOnly: <boolean>
+              gitRepo: <GitRepoVolumeSource>
+                directory: <string>
+                repository: <string> # Required
+                revision: <string>
+              glusterfs: <GlusterfsVolumeSource>
+                endpoints: <string> # Required
+                path: <string> # Required
+                readOnly: <boolean>
+              hostPath: <HostPathVolumeSource>
+                path: <string> # Required
+                type: <string>
+                # Enum: "", BlockDevice, CharDevice, Directory, ....
+              image: <ImageVolumeSource>
+                pullPolicy: <string>
+                # Enum: Always, IfNotPresent, Never
+                reference: <string>
+              iscsi: <ISCSIVolumeSource>
+                chapAuthDiscovery: <boolean>
+                chapAuthSession: <boolean>
+                fsType: <string>
+                initiatorName: <string>
+                iqn: <string> # Required
+                iscsiInterface: <string>
+                lun: <integer> # Required
+                portals:
+                  - <string>
+                readOnly: <boolean>
+                secretRef: <LocalObjectReference>
+                  name: <string>
+                targetPortal: <string> # Required
+              name: <string> # Required
+              nfs: <NFSVolumeSource>
+                path: <string> # Required
+                readOnly: <boolean>
+                server: <string> # Required
+              persistentVolumeClaim: <PersistentVolumeClaimVolumeSource>
+                claimName: <string> # Required
+                readOnly: <boolean>
+              photonPersistentDisk: <PhotonPersistentDiskVolumeSource>
+                fsType: <string>
+                pdID: <string> # Required
+              portworxVolume: <PortworxVolumeSource>
+                fsType: <string>
+                readOnly: <boolean>
+                volumeID: <string> # Required
+              projected: <ProjectedVolumeSource>
+                defaultMode: <integer>
+                sources:
+                  - clusterTrustBundle: <ClusterTrustBundleProjection>
+                      labelSelector: <LabelSelector>
+                        matchExpressions:
+                          - key: <string> # Required
+                            operator: <string> # Required
+                            values:
+                              - <string>
+                        matchLabels: <map[string]string>
+                      name: <string>
+                      optional: <boolean>
+                      path: <string> # Required
+                      signerName: <string>
+                    configMap: <ConfigMapProjection>
+                      items:
+                        - key: <string> # Required
+                          mode: <integer>
+                          path: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+                    downwardAPI: <DownwardAPIProjection>
+                      items:
+                        - fieldRef: <ObjectFieldSelector>
+                            apiVersion: <string>
+                            fieldPath: <string> # Required
+                          mode: <integer>
+                          path: <string> # Required
+                          resourceFieldRef: <ResourceFieldSelector>
+                            containerName: <string>
+                            divisor: <Quantity>
+                            resource: <string> # Required
+                    podCertificate: <PodCertificateProjection>
+                      certificateChainPath: <string>
+                      credentialBundlePath: <string>
+                      keyPath: <string>
+                      keyType: <string> # Required
+                      maxExpirationSeconds: <integer>
+                      signerName: <string> # Required
+                      userAnnotations: <map[string]string>
+                    secret: <SecretProjection>
+                      items:
+                        - key: <string> # Required
+                          mode: <integer>
+                          path: <string> # Required
+                      name: <string>
+                      optional: <boolean>
+                    serviceAccountToken: <ServiceAccountTokenProjection>
+                      audience: <string>
+                      expirationSeconds: <integer>
+                      path: <string> # Required
+              quobyte: <QuobyteVolumeSource>
+                group: <string>
+                readOnly: <boolean>
+                registry: <string> # Required
+                tenant: <string>
+                user: <string>
+                volume: <string> # Required
+              rbd: <RBDVolumeSource>
+                fsType: <string>
+                image: <string> # Required
+                keyring: <string>
+                monitors:
+                  - <string> # Required
+                pool: <string>
+                readOnly: <boolean>
+                secretRef: <LocalObjectReference>
+                  name: <string>
+                user: <string>
+              scaleIO: <ScaleIOVolumeSource>
+                fsType: <string>
+                gateway: <string> # Required
+                protectionDomain: <string>
+                readOnly: <boolean>
+                secretRef: <LocalObjectReference> # Required
+                  name: <string>
+                sslEnabled: <boolean>
+                storageMode: <string>
+                storagePool: <string>
+                system: <string> # Required
+                volumeName: <string>
+              secret: <SecretVolumeSource>
+                defaultMode: <integer>
+                items:
+                  - key: <string> # Required
+                    mode: <integer>
+                    path: <string> # Required
+                optional: <boolean>
+                secretName: <string>
+              storageos: <StorageOSVolumeSource>
+                fsType: <string>
+                readOnly: <boolean>
+                secretRef: <LocalObjectReference>
+                  name: <string>
+                volumeName: <string>
+                volumeNamespace: <string>
+              vsphereVolume: <VsphereVirtualDiskVolumeSource>
+                fsType: <string>
+                storagePolicyID: <string>
+                storagePolicyName: <string>
+                volumePath: <string> # Required
+      workloadRef: <WorkloadReference>
+        name: <string> # Required
+        podGroup: <string> # Required
+        podGroupReplicaKey: <string>
+      ttlSecondsAfterFinished: <integer>
+  schedule: <string> # Required
+  startingDeadlineSeconds: <integer>
+  successfulJobsHistoryLimit: <integer>
+  suspend: <boolean>
+  timeZone: <string>
+status: <CronJobStatus>
+  active:
+    - apiVersion: <string>
+      fieldPath: <string>
+      kind: <string>
+      name: <string>
+      namespace: <string>
+      resourceVersion: <string>
+      uid: <string>
+  lastScheduleTime: <string>
+  lastSuccessfulTime: <string>

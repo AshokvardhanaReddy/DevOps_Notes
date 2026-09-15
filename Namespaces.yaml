@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: <string>
+  namespace: <string>
+  labels: {}  # labels are maps containing key: value pairs. It can be Anything
+    environment: dev
+    team: backend
+    project: myapp
+  annotations: {}  # annotations are maps containing key: value pairs. It can be Anything
+    owner: ashok
+    environment: development
+
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <fieldsV1>  # fieldsV1 is internal Kubernetes bookkeeping. It helps Kubernetes keep track of: Which fields of an object are managed/owned by which manager.
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:
+    - apiVersion: <string>  # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string>  # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+spec:
+  finalizers:
+    - <string>
+status:
+  conditions:
+    - lastTransitionTime: <string>
+      message: <string>
+      reason: <string>
+      status: <string>  # Required
+      type: <string>  # Required
+  phase: <string>
+  enum: Active, Terminating  # Active and Terminating are status values that Kubernetes manages; you normally don't set them yourself.

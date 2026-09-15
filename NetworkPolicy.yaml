@@ -1,0 +1,92 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: <string>
+  namespace: <string>
+  annotations: <map[string]string>
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  labels: <map[string]string>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:
+    - apiVersion: <string> # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string> # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+spec:
+  egress:
+    - ports:
+        - endPort: <integer>
+          port: <IntOrString>
+          protocol: <string>
+          # Enum: SCTP, TCP, UDP
+      to:
+        - ipBlock:
+            cidr: <string> # Required
+            except:
+              - <string>
+          namespaceSelector:
+            matchExpressions:
+              - key: <string> # Required
+                operator: <string> # Required
+                values:
+                  - <string>
+            matchLabels: <map[string]string>
+          podSelector:
+            matchExpressions:
+              - key: <string> # Required
+                operator: <string> # Required
+                values:
+                  - <string>
+            matchLabels: <map[string]string>
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: <string> # Required
+            except:
+              - <string>
+          namespaceSelector:
+            matchExpressions:
+              - key: <string> # Required
+                operator: <string> # Required
+                values:
+                  - <string>
+            matchLabels: <map[string]string>
+          podSelector:
+            matchExpressions:
+              - key: <string> # Required
+                operator: <string> # Required
+                values:
+                  - <string>
+            matchLabels: <map[string]string>
+      ports:
+        - endPort: <integer>
+          port: <IntOrString>
+          protocol: <string>
+          # Enum: SCTP, TCP, UDP
+  podSelector:
+    matchExpressions:
+      - key: <string> # Required
+        operator: <string> # Required
+        values:
+          - <string>
+    matchLabels: <map[string]string>
+  policyTypes:
+    - <string>

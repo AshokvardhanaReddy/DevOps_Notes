@@ -1,0 +1,52 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: <string>
+  namespace: <string>
+  labels:
+    environment: production
+    type: storage
+  annotations:
+    description: storage class
+    owner: ashok
+  creationTimestamp: <string>
+  deletionGracePeriodSeconds: <integer>
+  deletionTimestamp: <string>
+  finalizers:
+    - <string>
+  generateName: <string>
+  generation: <integer>
+  managedFields:
+    - apiVersion: <string>
+      fieldsType: <string>
+      fieldsV1: <FieldsV1>
+      manager: <string>
+      operation: <string>
+      subresource: <string>
+      time: <string>
+  ownerReferences:
+    - apiVersion: <string> # Required
+      blockOwnerDeletion: <boolean>
+      controller: <boolean>
+      kind: <string> # Required
+      name: <string> # Required
+      uid: <string> # Required
+  resourceVersion: <string>
+  selfLink: <string>
+  uid: <string>
+provisioner: <string> # Required
+parameters:
+  type: gp3
+  fsType: ext4
+mountOptions:
+  - <string>
+reclaimPolicy: <string>
+# Enum: Delete, Recycle, Retain
+volumeBindingMode: <string>
+# Enum: Immediate, WaitForFirstConsumer
+allowVolumeExpansion: <boolean>
+allowedTopologies:
+  - matchLabelExpressions:
+      - key: <string> # Required
+        values:
+          - <string> # Required

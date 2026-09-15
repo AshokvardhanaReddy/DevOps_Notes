@@ -1,0 +1,1451 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ""
+  namespace: ""
+  annotations: {}
+  labels: {}
+
+  creationTimestamp: ""
+  deletionGracePeriodSeconds: 0
+  deletionTimestamp: ""
+  finalizers:
+    - ""
+  generateName: ""
+  generation: 0
+  managedFields:
+    - apiVersion: ""
+      fieldsType: ""
+      fieldsV1: {}
+      manager: ""
+      operation: ""
+      subresource: ""
+      time: ""
+  ownerReferences:
+    - apiVersion: "" # Required
+      blockOwnerDeletion: false
+      controller: false
+      kind: "" # Required
+      name: "" # Required
+      uid: "" # Required
+  resourceVersion: ""
+  selfLink: ""
+  uid: ""
+spec:
+  containers:
+    - name: "" # Required
+      image: ""
+      ports:
+        - name: ""
+          containerPort: <integer> # Required
+          hostIP: ""
+          hostPort: 0
+          protocol: SCTP, TCP, UDP
+      imagePullPolicy: Always, IfNotPresent, Never
+      command:
+        - ""
+      args:
+        - ""
+      env:
+        - name: "" # Required
+          value: ""
+          valueFrom:
+            configMapKeyRef:
+              key: "" # Required
+              name: ""
+              optional: <boolean>
+            fieldRef:
+              apiVersion: ""
+              fieldPath: "" # Required
+            fileKeyRef:
+              key: "" # Required
+              optional: false
+              path: "" # Required
+              volumeName: "" # Required
+            resourceFieldRef:
+              containerName: ""
+              divisor: ""
+              resource: "" # Required
+            secretKeyRef:
+              key: "" # Required
+              name: ""
+              optional: false
+      envFrom:
+        - configMapRef:
+            name: ""
+            optional: false
+          prefix: ""
+          secretRef:
+            name: ""
+            optional: false
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: <Integer or String> # Required
+            scheme: HTTP, HTTPS
+          sleep:
+            seconds: <integer> # Required
+          tcpSocket:
+            host: ""
+            port: <integer or string> # Required
+        preStop:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: <integer or string> # Required
+            scheme: HTTP, HTTPS
+          sleep:
+            seconds: <integer> # Required
+          tcpSocket:
+            host: ""
+            port: <integer or string> # Required
+        stopSignal: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+      livenessProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+
+      readinessProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      resizePolicy:
+        - resourceName: "" # Required
+          restartPolicy: "" # Required
+      resources:
+        claims:
+          - name: "" # Required
+            request: ""
+        limits: {}
+        requests: {}
+      restartPolicy: ""
+      restartPolicyRules:
+        - action: "" # Required
+          exitCodes:
+            operator: "" # Required
+            values:
+              - 0
+      securityContext:
+        allowPrivilegeEscalation: false
+        appArmorProfile:
+          localhostProfile: ""
+          type: "" # Required
+          # Enum: Localhost, RuntimeDefault, Unconfined
+        capabilities:
+          add:
+            - ""
+          drop:
+            - ""
+        privileged: false
+        procMount: ""
+        # Enum: Default, Unmasked
+        readOnlyRootFilesystem: false
+        runAsGroup: 0
+        runAsNonRoot: false
+        runAsUser: 0
+        seLinuxOptions:
+          level: ""
+          role: ""
+          type: ""
+          user: ""
+        seccompProfile:
+          localhostProfile: ""
+          type: "" # Required
+          # Enum: Localhost, RuntimeDefault, Unconfined
+        windowsOptions:
+          gmsaCredentialSpec: ""
+          gmsaCredentialSpecName: ""
+          hostProcess: false
+          runAsUserName: ""
+      startupProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      stdin: false
+      stdinOnce: false
+      terminationMessagePath: ""
+      terminationMessagePolicy: FallbackToLogsOnError, File
+      tty: <boolean>
+      volumeDevices:
+        - devicePath: "" # Required
+          name: "" # Required
+      volumeMounts:
+        - mountPath: "" # Required
+          mountPropagation: Bidirectional, HostToContainer, None
+          name: "" # Required
+          readOnly: false
+          recursiveReadOnly: ""
+          subPath: ""
+          subPathExpr: ""
+      workingDir: ""
+
+
+  activeDeadlineSeconds: 0
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - preference:
+            matchExpressions:
+              - key: "" # Required
+                operator: "" # Required
+                # Enum: DoesNotExist, Exists, Gt, In, ....
+                values:
+                  - ""
+            matchFields:
+              - key: "" # Required
+                operator: "" # Required
+                # Enum: DoesNotExist, Exists, Gt, In, ....
+                values:
+                  - ""
+          weight: 0 # Required
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: "" # Required
+                operator: "" # Required
+                # Enum: DoesNotExist, Exists, Gt, In, ....
+                values:
+                  - ""
+            matchFields:
+              - key: "" # Required
+                operator: "" # Required
+                # Enum: DoesNotExist, Exists, Gt, In, ....
+                values:
+                  - ""
+    podAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: "" # Required
+                  operator: "" # Required
+                  values:
+                    - ""
+              matchLabels: {}
+            matchLabelKeys:
+              - ""
+            mismatchLabelKeys:
+              - ""
+            namespaceSelector:
+              matchExpressions:
+                - key: "" # Required
+                  operator: "" # Required
+                  values:
+                    - ""
+              matchLabels: {}
+            namespaces:
+              - ""
+            topologyKey: "" # Required
+          weight: 0 # Required
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: "" # Required
+                operator: "" # Required
+                values:
+                  - ""
+            matchLabels: {}
+          matchLabelKeys:
+            - ""
+          mismatchLabelKeys:
+            - ""
+          namespaceSelector:
+            matchExpressions:
+              - key: "" # Required
+                operator: "" # Required
+                values:
+                  - ""
+            matchLabels: {}
+          namespaces:
+            - ""
+          topologyKey: "" # Required
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: "" # Required
+                  operator: "" # Required
+                  values:
+                    - ""
+              matchLabels: {}
+            matchLabelKeys:
+              - ""
+            mismatchLabelKeys:
+              - ""
+            namespaceSelector:
+              matchExpressions:
+                - key: "" # Required
+                  operator: "" # Required
+                  values:
+                    - ""
+              matchLabels: {}
+            namespaces:
+              - ""
+            topologyKey: "" # Required
+          weight: 0 # Required
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: "" # Required
+                operator: "" # Required
+                values:
+                  - ""
+            matchLabels: {}
+          matchLabelKeys:
+            - ""
+          mismatchLabelKeys:
+            - ""
+          namespaceSelector:
+            matchExpressions:
+              - key: "" # Required
+                operator: "" # Required
+                values:
+                  - ""
+            matchLabels: {}
+          namespaces:
+            - ""
+          topologyKey: "" # Required
+  automountServiceAccountToken: false
+
+  dnsConfig:
+    nameservers:
+      - ""
+    options:
+      - name: ""
+        value: ""
+    searches:
+      - ""
+  dnsPolicy: ""
+  # Enum: ClusterFirst, ClusterFirstWithHostNet, Default, None
+  enableServiceLinks: false
+  ephemeralContainers:
+    - name: "" # Required
+      image: ""
+      imagePullPolicy: ""
+      # Enum: Always, IfNotPresent, Never
+      command:
+        - ""
+      args:
+        - ""
+      targetContainerName: ""
+      env:
+        - name: "" # Required
+          value: ""
+          valueFrom:
+            configMapKeyRef:
+              key: "" # Required
+              name: ""
+              optional: false
+            fieldRef:
+              apiVersion: ""
+              fieldPath: "" # Required
+            fileKeyRef:
+              key: "" # Required
+              optional: false
+              path: "" # Required
+              volumeName: "" # Required
+            resourceFieldRef:
+              containerName: ""
+              divisor: ""
+              resource: "" # Required
+            secretKeyRef:
+              key: "" # Required
+              name: ""
+              optional: false
+      envFrom:
+        - configMapRef:
+            name: ""
+            optional: false
+          prefix: ""
+          secretRef:
+            name: ""
+            optional: false
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: "" # Required
+            scheme: ""
+            # Enum: HTTP, HTTPS
+          sleep:
+            seconds: 0 # Required
+          tcpSocket:
+            host: ""
+            port: "" # Required
+        preStop:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: "" # Required
+            scheme: ""
+            # Enum: HTTP, HTTPS
+          sleep:
+            seconds: 0 # Required
+          tcpSocket:
+            host: ""
+            port: "" # Required
+        stopSignal: ""
+        # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+      livenessProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      ports:
+        - containerPort: 0 # Required
+          hostIP: ""
+          hostPort: 0
+          name: ""
+          protocol: ""
+          # Enum: SCTP, TCP, UDP
+      readinessProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      resizePolicy:
+        - resourceName: "" # Required
+          restartPolicy: "" # Required
+      resources:
+        claims:
+          - name: "" # Required
+            request: ""
+        limits: {}
+        requests: {}
+      restartPolicy: ""
+      restartPolicyRules:
+        - action: "" # Required
+          exitCodes:
+            operator: "" # Required
+            values:
+              - 0
+      securityContext:
+        allowPrivilegeEscalation: false
+        appArmorProfile:
+          localhostProfile: ""
+          type: "" # Required
+          # Enum: Localhost, RuntimeDefault, Unconfined
+        capabilities:
+          add:
+            - ""
+          drop:
+            - ""
+        privileged: false
+        procMount: ""
+        # Enum: Default, Unmasked
+        readOnlyRootFilesystem: false
+        runAsGroup: 0
+        runAsNonRoot: false
+        runAsUser: 0
+        seLinuxOptions:
+          level: ""
+          role: ""
+          type: ""
+          user: ""
+        seccompProfile:
+          localhostProfile: ""
+          type: "" # Required
+          # Enum: Localhost, RuntimeDefault, Unconfined
+        windowsOptions:
+          gmsaCredentialSpec: ""
+          gmsaCredentialSpecName: ""
+          hostProcess: false
+          runAsUserName: ""
+      startupProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      stdin: false
+      stdinOnce: false
+      terminationMessagePath: ""
+      terminationMessagePolicy: ""
+      # Enum: FallbackToLogsOnError, File
+      tty: false
+      volumeDevices:
+        - devicePath: "" # Required
+          name: "" # Required
+      volumeMounts:
+        - mountPath: "" # Required
+          mountPropagation: ""
+          # Enum: Bidirectional, HostToContainer, None
+          name: "" # Required
+          readOnly: false
+          recursiveReadOnly: ""
+          subPath: ""
+          subPathExpr: ""
+      workingDir: ""
+  hostAliases:
+    - hostnames:
+        - ""
+      ip: "" # Required
+  hostIPC: false
+  hostNetwork: false
+  hostPID: false
+  hostUsers: false
+  hostname: ""
+  hostnameOverride: ""
+  imagePullSecrets:
+    - name: ""
+  initContainers:
+    - name: "" # Required
+      image: ""
+      imagePullPolicy: Always, IfNotPresent, Never
+      command:
+        - ""
+      args:
+        - ""
+      env:
+        - name: "" # Required
+          value: ""
+          valueFrom:
+            configMapKeyRef:
+              key: "" # Required
+              name: ""
+              optional: false
+            fieldRef:
+              apiVersion: ""
+              fieldPath: "" # Required
+            fileKeyRef:
+              key: "" # Required
+              optional: false
+              path: "" # Required
+              volumeName: "" # Required
+            resourceFieldRef:
+              containerName: ""
+              divisor: ""
+              resource: "" # Required
+            secretKeyRef:
+              key: "" # Required
+              name: ""
+              optional: false
+      envFrom:
+        - configMapRef:
+            name: ""
+            optional: false
+          prefix: ""
+          secretRef:
+            name: ""
+            optional: false
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: "" # Required
+            scheme: ""
+            # Enum: HTTP, HTTPS
+          sleep:
+            seconds: 0 # Required
+          tcpSocket:
+            host: ""
+            port: "" # Required
+        preStop:
+          exec:
+            command:
+              - ""
+          httpGet:
+            host: ""
+            httpHeaders:
+              - name: "" # Required
+                value: "" # Required
+            path: ""
+            port: "" # Required
+            scheme: ""
+            # Enum: HTTP, HTTPS
+          sleep:
+            seconds: 0 # Required
+          tcpSocket:
+            host: ""
+            port: "" # Required
+        stopSignal: ""
+        # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+      livenessProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      ports:
+        - containerPort: 0 # Required
+          hostIP: ""
+          hostPort: 0
+          name: ""
+          protocol: ""
+          # Enum: SCTP, TCP, UDP
+      readinessProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      resizePolicy:
+        - resourceName: "" # Required
+          restartPolicy: "" # Required
+      resources:
+        claims:
+          - name: "" # Required
+            request: ""
+        limits: {}
+        requests: {}
+      restartPolicy: ""
+      restartPolicyRules:
+        - action: "" # Required
+          exitCodes:
+            operator: "" # Required
+            values:
+              - 0
+      securityContext:
+        allowPrivilegeEscalation: false
+        appArmorProfile:
+          localhostProfile: ""
+          type: "" # Required
+          # Enum: Localhost, RuntimeDefault, Unconfined
+        capabilities:
+          add:
+            - ""
+          drop:
+            - ""
+        privileged: false
+        procMount: ""
+        # Enum: Default, Unmasked
+        readOnlyRootFilesystem: false
+        runAsGroup: 0
+        runAsNonRoot: false
+        runAsUser: 0
+        seLinuxOptions:
+          level: ""
+          role: ""
+          type: ""
+          user: ""
+        seccompProfile:
+          localhostProfile: ""
+          type: "" # Required
+          # Enum: Localhost, RuntimeDefault, Unconfined
+        windowsOptions:
+          gmsaCredentialSpec: ""
+          gmsaCredentialSpecName: ""
+          hostProcess: false
+          runAsUserName: ""
+      startupProbe:
+        exec:
+          command:
+            - ""
+        failureThreshold: 0
+        grpc:
+          port: 0 # Required
+          service: ""
+        httpGet:
+          host: ""
+          httpHeaders:
+            - name: "" # Required
+              value: "" # Required
+          path: ""
+          port: "" # Required
+          scheme: ""
+          # Enum: HTTP, HTTPS
+        initialDelaySeconds: 0
+        periodSeconds: 0
+        successThreshold: 0
+        tcpSocket:
+          host: ""
+          port: "" # Required
+        terminationGracePeriodSeconds: 0
+        timeoutSeconds: 0
+      stdin: false
+      stdinOnce: false
+      terminationMessagePath: ""
+      terminationMessagePolicy: ""
+      # Enum: FallbackToLogsOnError, File
+      tty: false
+      volumeDevices:
+        - devicePath: "" # Required
+          name: "" # Required
+      volumeMounts:
+        - mountPath: "" # Required
+          mountPropagation: Bidirectional, HostToContainer, None
+          name: "" # Required
+          readOnly: false
+          recursiveReadOnly: ""
+          subPath: ""
+          subPathExpr: ""
+      workingDir: ""
+  nodeName: ""
+  nodeSelector: {}
+  os:
+    name: "" # Required
+  overhead: {}
+  preemptionPolicy: ""
+  # Enum: Never, PreemptLowerPriority
+  priority: 0
+  priorityClassName: ""
+  readinessGates:
+    - conditionType: "" # Required
+  resourceClaims:
+    - name: "" # Required
+      resourceClaimName: ""
+      resourceClaimTemplateName: ""
+  resources:
+    claims:
+      - name: "" # Required
+        request: ""
+    limits: {}
+    requests: {}
+  restartPolicy: Always, Never, OnFailure
+  runtimeClassName: ""
+  schedulerName: ""
+  schedulingGates:
+    - name: "" # Required
+  securityContext:
+    appArmorProfile:
+      localhostProfile: ""
+      type: "" # Required
+      # Enum: Localhost, RuntimeDefault, Unconfined
+    fsGroup: 0
+    fsGroupChangePolicy: ""
+    # Enum: Always, OnRootMismatch
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+    seLinuxChangePolicy: ""
+    seLinuxOptions:
+      level: ""
+      role: ""
+      type: ""
+      user: ""
+    seccompProfile:
+      localhostProfile: ""
+      type: "" # Required
+      # Enum: Localhost, RuntimeDefault, Unconfined
+    supplementalGroups:
+      - 0
+    supplementalGroupsPolicy: ""
+    # Enum: Merge, Strict
+    sysctls:
+      - name: "" # Required
+        value: "" # Required
+    windowsOptions:
+      gmsaCredentialSpec: ""
+      gmsaCredentialSpecName: ""
+      hostProcess: false
+      runAsUserName: ""
+  serviceAccount: ""
+  serviceAccountName: ""
+  setHostnameAsFQDN: false
+  shareProcessNamespace: false
+  subdomain: ""
+  terminationGracePeriodSeconds: 0
+  tolerations:
+    - effect: ""
+      # Enum: NoExecute, NoSchedule, PreferNoSchedule
+      key: ""
+      operator: ""
+      # Enum: Equal, Exists, Gt, Lt
+      tolerationSeconds: 0
+      value: ""
+  topologySpreadConstraints:
+    - labelSelector:
+        matchExpressions:
+          - key: "" # Required
+            operator: "" # Required
+            values:
+              - ""
+        matchLabels: {}
+      matchLabelKeys:
+        - ""
+      maxSkew: 0 # Required
+      minDomains: 0
+      nodeAffinityPolicy: ""
+      # Enum: Honor, Ignore
+      nodeTaintsPolicy: ""
+      # Enum: Honor, Ignore
+      topologyKey: "" # Required
+      whenUnsatisfiable: "" # Required
+      # Enum: DoNotSchedule, ScheduleAnyway
+  volumes:
+    - name: "" # Required
+      awsElasticBlockStore:
+        fsType: ""
+        partition: 0
+        readOnly: false
+        volumeID: "" # Required
+      azureDisk:
+        cachingMode: ""
+        # Enum: None, ReadOnly, ReadWrite
+        diskName: "" # Required
+        diskURI: "" # Required
+        fsType: ""
+        kind: ""
+        # Enum: Dedicated, Managed, Shared
+        readOnly: false
+      azureFile:
+        readOnly: false
+        secretName: "" # Required
+        shareName: "" # Required
+      cephfs:
+        monitors:
+          - "" # Required
+        path: ""
+        readOnly: false
+        secretFile: ""
+        secretRef:
+          name: ""
+        user: ""
+      cinder:
+        fsType: ""
+        readOnly: false
+        secretRef:
+          name: ""
+        volumeID: "" # Required
+      configMap:
+        defaultMode: 0
+        items:
+          - key: "" # Required
+            mode: 0
+            path: "" # Required
+        name: ""
+        optional: false
+      csi:
+        driver: "" # Required
+        fsType: ""
+        nodePublishSecretRef:
+          name: ""
+        readOnly: false
+        volumeAttributes: {}
+      downwardAPI:
+        defaultMode: 0
+        items:
+          - fieldRef:
+              apiVersion: ""
+              fieldPath: "" # Required
+            mode: 0
+            path: "" # Required
+            resourceFieldRef:
+              containerName: ""
+              divisor: ""
+              resource: "" # Required
+      emptyDir:
+        medium: ""
+        sizeLimit: ""
+      ephemeral:
+        volumeClaimTemplate:
+          metadata:
+            name: ""
+            namespace: ""
+            annotations: {}
+            labels: {}
+          spec:
+            accessModes:
+              - ""
+            dataSource:
+              apiGroup: ""
+              kind: "" # Required
+              name: "" # Required
+            dataSourceRef:
+              apiGroup: ""
+              kind: "" # Required
+              name: "" # Required
+              namespace: ""
+            resources:
+              limits: {}
+              requests: {}
+            selector:
+              matchExpressions:
+                - key: "" # Required
+                  operator: "" # Required
+                  values:
+                    - ""
+              matchLabels: {}
+            storageClassName: ""
+            volumeAttributesClassName: ""
+            volumeMode: ""
+            # Enum: Block, Filesystem
+            volumeName: ""
+      fc:
+        fsType: ""
+        lun: 0
+        readOnly: false
+        targetWWNs:
+          - ""
+        wwids:
+          - ""
+      flexVolume:
+        driver: "" # Required
+        fsType: ""
+        options: {}
+        readOnly: false
+        secretRef:
+          name: ""
+      flocker:
+        datasetName: ""
+        datasetUUID: ""
+      gcePersistentDisk:
+        fsType: ""
+        partition: 0
+        pdName: "" # Required
+        readOnly: false
+      gitRepo:
+        directory: ""
+        repository: "" # Required
+        revision: ""
+      glusterfs:
+        endpoints: "" # Required
+        path: "" # Required
+        readOnly: false
+      hostPath:
+        path: "" # Required
+        type: ""
+        # Enum: "", BlockDevice, CharDevice, Directory, ....
+      image:
+        pullPolicy: ""
+        # Enum: Always, IfNotPresent, Never
+        reference: ""
+      iscsi:
+        chapAuthDiscovery: false
+        chapAuthSession: false
+        fsType: ""
+        initiatorName: ""
+        iqn: "" # Required
+        iscsiInterface: ""
+        lun: 0 # Required
+        portals:
+          - ""
+        readOnly: false
+        secretRef:
+          name: ""
+        targetPortal: "" # Required
+      nfs:
+        path: "" # Required
+        readOnly: false
+        server: "" # Required
+      persistentVolumeClaim:
+        claimName: "" # Required
+        readOnly: false
+      photonPersistentDisk:
+        fsType: ""
+        pdID: "" # Required
+      portworxVolume:
+        fsType: ""
+        readOnly: false
+        volumeID: "" # Required
+      projected:
+        defaultMode: 0
+        sources:
+          - clusterTrustBundle:
+              labelSelector:
+                matchExpressions:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values:
+                      - ""
+                matchLabels: {}
+              name: ""
+              optional: false
+              path: "" # Required
+              signerName: ""
+            configMap:
+              items:
+                - key: "" # Required
+                  mode: 0
+                  path: "" # Required
+              name: ""
+              optional: false
+            downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: ""
+                    fieldPath: "" # Required
+                  mode: 0
+                  path: "" # Required
+                  resourceFieldRef:
+                    containerName: ""
+                    divisor: ""
+                    resource: "" # Required
+            podCertificate:
+              certificateChainPath: ""
+              credentialBundlePath: ""
+              keyPath: ""
+              keyType: "" # Required
+              maxExpirationSeconds: 0
+              signerName: "" # Required
+              userAnnotations: {}
+            secret:
+              items:
+                - key: "" # Required
+                  mode: 0
+                  path: "" # Required
+              name: ""
+              optional: false
+            serviceAccountToken:
+              audience: ""
+              expirationSeconds: 0
+              path: "" # Required
+      quobyte:
+        group: ""
+        readOnly: false
+        registry: "" # Required
+        tenant: ""
+        user: ""
+        volume: "" # Required
+      rbd:
+        fsType: ""
+        image: "" # Required
+        keyring: ""
+        monitors:
+          - "" # Required
+        pool: ""
+        readOnly: false
+        secretRef:
+          name: ""
+        user: ""
+      scaleIO:
+        fsType: ""
+        gateway: "" # Required
+        protectionDomain: ""
+        readOnly: false
+        secretRef:
+          name: "" # Required
+        sslEnabled: false
+        storageMode: ""
+        storagePool: ""
+        system: "" # Required
+        volumeName: ""
+      secret:
+        defaultMode: 0
+        items:
+          - key: "" # Required
+            mode: 0
+            path: "" # Required
+        optional: false
+        secretName: ""
+      storageos:
+        fsType: ""
+        readOnly: false
+        secretRef:
+          name: ""
+        volumeName: ""
+        volumeNamespace: ""
+      vsphereVolume:
+        fsType: ""
+        storagePolicyID: ""
+        storagePolicyName: ""
+        volumePath: "" # Required
+status:
+  allocatedResources: {}
+  conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: ""
+      message: ""
+      observedGeneration: 0
+      reason: ""
+      status: "" # Required
+      type: "" # Required
+  containerStatuses:
+    - allocatedResources: {}
+      allocatedResourcesStatus:
+        - name: "" # Required
+          resources:
+            - health: ""
+              resourceID: "" # Required
+      containerID: ""
+      image: "" # Required
+      imageID: "" # Required
+      lastState:
+        running:
+          startedAt: ""
+        terminated:
+          containerID: ""
+          exitCode: 0 # Required
+          finishedAt: ""
+          message: ""
+          reason: ""
+          signal: 0
+          startedAt: ""
+        waiting:
+          message: ""
+          reason: ""
+      name: "" # Required
+      ready: false # Required
+      resources:
+        claims:
+          - name: "" # Required
+            request: ""
+        limits: {}
+        requests: {}
+      restartCount: 0 # Required
+      started: false
+      state:
+        running:
+          startedAt: ""
+        terminated:
+          containerID: ""
+          exitCode: 0 # Required
+          finishedAt: ""
+          message: ""
+          reason: ""
+          signal: 0
+          startedAt: ""
+        waiting:
+          message: ""
+          reason: ""
+      stopSignal: ""
+      # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+      user:
+        linux:
+          gid: 0 # Required
+          supplementalGroups:
+            - 0
+          uid: 0 # Required
+      volumeMounts:
+        - mountPath: "" # Required
+          name: "" # Required
+          readOnly: false
+          recursiveReadOnly: ""
+  ephemeralContainerStatuses:
+    - allocatedResources: {}
+      allocatedResourcesStatus:
+        - name: "" # Required
+          resources:
+            - health: ""
+              resourceID: "" # Required
+      containerID: ""
+      image: "" # Required
+      imageID: "" # Required
+      lastState:
+        running:
+          startedAt: ""
+        terminated:
+          containerID: ""
+          exitCode: 0 # Required
+          finishedAt: ""
+          message: ""
+          reason: ""
+          signal: 0
+          startedAt: ""
+        waiting:
+          message: ""
+          reason: ""
+      name: "" # Required
+      ready: false # Required
+      resources:
+        claims:
+          - name: "" # Required
+            request: ""
+        limits: {}
+        requests: {}
+      restartCount: 0 # Required
+      started: false
+      state:
+        running:
+          startedAt: ""
+        terminated:
+          containerID: ""
+          exitCode: 0 # Required
+          finishedAt: ""
+          message: ""
+          reason: ""
+          signal: 0
+          startedAt: ""
+        waiting:
+          message: ""
+          reason: ""
+      stopSignal: ""
+      # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+      user:
+        linux:
+          gid: 0 # Required
+          supplementalGroups:
+            - 0
+          uid: 0 # Required
+      volumeMounts:
+        - mountPath: "" # Required
+          name: "" # Required
+          readOnly: false
+          recursiveReadOnly: ""
+  extendedResourceClaimStatus:
+    requestMappings:
+      - containerName: "" # Required
+        requestName: "" # Required
+        resourceName: "" # Required
+    resourceClaimName: "" # Required
+  hostIP: ""
+  hostIPs:
+    - ip: "" # Required
+  initContainerStatuses:
+    - allocatedResources: {}
+      allocatedResourcesStatus:
+        - name: "" # Required
+          resources:
+            - health: ""
+              resourceID: "" # Required
+      containerID: ""
+      image: "" # Required
+      imageID: "" # Required
+      lastState:
+        running:
+          startedAt: ""
+        terminated:
+          containerID: ""
+          exitCode: 0 # Required
+          finishedAt: ""
+          message: ""
+          reason: ""
+          signal: 0
+          startedAt: ""
+        waiting:
+          message: ""
+          reason: ""
+      name: "" # Required
+      ready: false # Required
+      resources:
+        claims:
+          - name: "" # Required
+            request: ""
+        limits: {}
+        requests: {}
+      restartCount: 0 # Required
+      started: false
+      state:
+        running:
+          startedAt: ""
+        terminated:
+          containerID: ""
+          exitCode: 0 # Required
+          finishedAt: ""
+          message: ""
+          reason: ""
+          signal: 0
+          startedAt: ""
+        waiting:
+          message: ""
+          reason: ""
+      stopSignal: ""
+      # Enum: SIGABRT, SIGALRM, SIGBUS, SIGCHLD, ....
+      user:
+        linux:
+          gid: 0 # Required
+          supplementalGroups:
+            - 0
+          uid: 0 # Required
+      volumeMounts:
+        - mountPath: "" # Required
+          name: "" # Required
+          readOnly: false
+          recursiveReadOnly: ""
+  message: ""
+  nominatedNodeName: ""
+  observedGeneration: 0
+  phase: ""
+  # Enum: Failed, Pending, Running, Succeeded, ....
+  podIP: ""
+  podIPs:
+    - ip: "" # Required
+  qosClass: ""
+  # Enum: BestEffort, Burstable, Guaranteed
+  reason: ""
+  resize: ""
+  resourceClaimStatuses:
+    - name: "" # Required
+      resourceClaimName: ""
+  resources:
+    claims:
+      - name: "" # Required
+        request: ""
+    limits: {}
+    requests: {}
+  startTime: ""

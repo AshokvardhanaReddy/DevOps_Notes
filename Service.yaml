@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ""
+  namespace: ""
+  annotations: {}
+  labels: {}
+  
+  creationTimestamp: ""
+  deletionGracePeriodSeconds: 0
+  deletionTimestamp: ""
+  finalizers:
+    - ""
+  generateName: ""
+  generation: 0
+  managedFields:
+    - apiVersion: v1
+      fieldsType: ""
+      fieldsV1: {}
+      manager: ""
+      operation: ""
+      subresource: ""
+      time: ""
+  ownerReferences:
+    - apiVersion: ""
+      blockOwnerDeletion: false
+      controller: false
+      kind: ""
+      name: ""
+      uid: ""
+  resourceVersion: ""
+  selfLink: ""
+  uid: ""
+spec:
+  selector: {}
+    app: pod-name    # it must be labels of a Pod 
+  type: ClusterIP, ExternalName, LoadBalancer, NodePort  # One of these values, by Default is ClusterIP
+  ports:
+   - name: ""
+     port: 0  # Required
+     targetPort: 0
+     nodePort: 0
+     protocol: SCTP, TCP, UDP  # One of these values, by Default is TCP
+     appProtocol: ""
+  sessionAffinity: ClientIP, None   # One of these values, by Default is TCP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 0
+  externalTrafficPolicy: Cluster, Local  # One of these values, by Default is TCP
+  internalTrafficPolicy: Cluster, Local  # One of these values, by Default is TCP
+
+  clusterIP: ""
+  clusterIPs:
+    - ""
+  externalName: ""
+  
+  allocateLoadBalancerNodePorts: false
+
+  externalIPs:
+    - ""
+
+  
+  healthCheckNodePort: 0
+  ipFamilies:
+    - ""
+  ipFamilyPolicy: SingleStack
+  loadBalancerClass: ""
+  loadBalancerIP: ""
+  loadBalancerSourceRanges:
+    - ""
+  publishNotReadyAddresses: false
+  trafficDistribution: ""
+status:
+  conditions:
+    - lastTransitionTime: "" # required
+      message: "" # required
+      observedGeneration: 0
+      reason: "" # required
+      status: "" # required
+      type: "" # required
+  loadBalancer:
+    ingress:
+      - hostname: ""
+        ip: ""
+        ipMode: ""
+        ports:
+          - error: ""
+            port: 0 # required
+            protocol: TCP # required
