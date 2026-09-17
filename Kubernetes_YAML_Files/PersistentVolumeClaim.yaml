@@ -9,6 +9,7 @@ metadata:
   annotations:
     description: persistent volume claim
     owner: ashok
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -35,25 +36,6 @@ metadata:
   selfLink: <string>
   uid: <string>
 spec:
-  accessModes:
-    - <string>
-  dataSource:
-    apiGroup: <string>
-    kind: <string> # Required
-    name: <string> # Required
-  dataSourceRef:
-    apiGroup: <string>
-    kind: <string> # Required
-    name: <string> # Required
-    namespace: <string>
-  resources:
-    limits:
-      cpu: <Quantity>
-      memory: <Quantity>
-    requests:
-      storage: <Quantity>
-      cpu: <Quantity>
-      memory: <Quantity>
   selector:
     matchExpressions:
       - key: <string> # Required
@@ -63,11 +45,30 @@ spec:
     matchLabels:
       app: mysql
       environment: production
+  accessModes:
+    - <string>
+  resources:
+    requests:
+      storage: <Quantity>
+      cpu: <Quantity>
+      memory: <Quantity>
+    limits:
+      cpu: <Quantity>
+      memory: <Quantity>
   storageClassName: <string>
-  volumeAttributesClassName: <string>
-  volumeMode: <string>
-  # Enum: Block, Filesystem
+  volumeMode: Block, Filesystem
   volumeName: <string>
+  volumeAttributesClassName: <string>
+  dataSource:
+    name: <string> # Required
+    kind: <string> # Required
+    apiGroup: <string>   
+  dataSourceRef:
+    name: <string> # Required
+    namespace: <string>
+    kind: <string> # Required
+    apiGroup: <string>
+
 status:
   accessModes:
     - <string>
