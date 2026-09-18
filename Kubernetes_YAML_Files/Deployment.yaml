@@ -3,9 +3,15 @@ kind: Deployment
 metadata:
   name: <string>
   namespace: <string>
+  labels:                              # map[string]string
+    environment: dev
+    team: backend
+    project: myapp
   annotations: {}                     # map[string]string
     owner: ashok
     environment: development
+
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -13,10 +19,6 @@ metadata:
     - <string>
   generateName: <string>
   generation: <integer>
-  labels:                              # map[string]string
-    environment: dev
-    team: backend
-    project: myapp
   managedFields:                       # []ManagedFieldsEntry
     - apiVersion: <string>
       fieldsType: <string>
@@ -38,11 +40,6 @@ metadata:
   selfLink: <string>
   uid: <string>
 spec:
-  minReadySeconds: <integer>
-  paused: <boolean>
-  progressDeadlineSeconds: <integer>
-  replicas: <integer>
-  revisionHistoryLimit: <integer>
   selector:           # Required
     matchExpressions:                   # []LabelSelectorRequirement
       - key: <string>                   # Required
@@ -52,24 +49,32 @@ spec:
     matchLabels: {}                     # map[string]string
       app: myapp
       environment: dev
+  replicas: <integer>
   strategy: 
+    type: Recreate, RollingUpdate
     rollingUpdate:
       maxSurge: <IntOrString>
       maxUnavailable: <IntOrString>
-    type: <string>
-    # Enum:
-    # Recreate
-    # RollingUpdate
+
+
+  minReadySeconds: <integer>
+  paused: <boolean>
+  progressDeadlineSeconds: <integer>
+
+  revisionHistoryLimit: <integer>
+
+
   template:          # Required
     metadata:
       name: <string>
       namespace: <string>
-      annotations:                       # map[string]string
-        owner: ashok
-        environment: development
       labels:                            # map[string]string
         app: myapp
         environment: dev
+      annotations:                       # map[string]string
+        owner: ashok
+        environment: development
+
       creationTimestamp: <string>
       deletionGracePeriodSeconds: <integer>
       deletionTimestamp: <string>

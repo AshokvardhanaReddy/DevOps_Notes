@@ -35,6 +35,8 @@ spec:
   volumes:
     - name: volumeName
       emptyDir: {}
+        medium:   <string>
+        sizeLimit:   <Quantity>
       hostPath:
         path: ""
         type: BlockDevice, CharDevice, Directory, ....
