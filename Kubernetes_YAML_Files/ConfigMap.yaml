@@ -9,6 +9,7 @@ metadata:
   annotations:
     description: application configuration
     owner: ashok
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -34,6 +35,7 @@ metadata:
   resourceVersion: <string>
   selfLink: <string>
   uid: <string>
+
 immutable: <boolean>
 data:
   <key>: <value>

@@ -9,6 +9,7 @@ metadata:
   annotations:
     description: batch job
     owner: ashok
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -34,21 +35,35 @@ metadata:
   resourceVersion: <string>
   selfLink: <string>
   uid: <string>
+
 spec:
-  activeDeadlineSeconds: <integer>
-  backoffLimit: <integer>
-  backoffLimitPerIndex: <integer>
-  completionMode: <string>
-  # Enum: Indexed, NonIndexed
   completions: <integer>
+  parallelism: <integer>
+  backoffLimit: <integer>
+  activeDeadlineSeconds: <integer>
+  ttlSecondsAfterFinished: <integer>
+  completionMode: Indexed, NonIndexed    # <string>
+
+  selector:
+    matchExpressions:
+      - key: <string> # Required
+        operator: <string> # Required
+        values:
+          - <string>
+    matchLabels:
+      app: batch-job
+  
+
+  backoffLimitPerIndex: <integer>
+ 
+
   managedBy: <string>
   manualSelector: <boolean>
   maxFailedIndexes: <integer>
-  parallelism: <integer>
+
   podFailurePolicy:
     rules:
-      - action: <string> # Required
-        # Enum: Count, FailIndex, FailJob, Ignore
+      - action:  Count, FailIndex, FailJob, Ignore   # Required - <string>
         onExitCodes:
           containerName: <string>
           operator: <string> # Required
@@ -60,14 +75,6 @@ spec:
             type: <string> # Required
   podReplacementPolicy: <string>
   # Enum: Failed, TerminatingOrFailed
-  selector:
-    matchExpressions:
-      - key: <string> # Required
-        operator: <string> # Required
-        values:
-          - <string>
-    matchLabels:
-      app: batch-job
   successPolicy:
     rules:
       - succeededCount: <integer>
@@ -584,8 +591,7 @@ spec:
         requests:
           cpu: <Quantity>
           memory: <Quantity>
-      restartPolicy: <string>
-      # Enum: Always, Never, OnFailure
+      restartPolicy: Always, Never, OnFailure
       runtimeClassName: <string>
       schedulerName: <string>
       schedulingGates:
@@ -710,7 +716,9 @@ spec:
         name: <string> # Required
         podGroup: <string> # Required
         podGroupReplicaKey: <string>
-  ttlSecondsAfterFinished: <integer>
+
+
+
 status:
   active: <integer>
   completedIndexes: <string>

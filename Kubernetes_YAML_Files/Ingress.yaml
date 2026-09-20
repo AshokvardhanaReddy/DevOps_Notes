@@ -3,7 +3,9 @@ kind: Ingress
 metadata:
   name: <string>
   namespace: <string>
+  labels: <map[string]string>
   annotations: <map[string]string>
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -11,7 +13,6 @@ metadata:
     - <string>
   generateName: <string>
   generation: <integer>
-  labels: <map[string]string>
   managedFields:
     - apiVersion: <string>
       fieldsType: <string>
@@ -30,6 +31,7 @@ metadata:
   resourceVersion: <string>
   selfLink: <string>
   uid: <string>
+
 spec:
   defaultBackend:
     resource:
@@ -63,6 +65,7 @@ spec:
     - hosts:
         - <string>
       secretName: <string>
+      
 status:
   loadBalancer:
     ingress:

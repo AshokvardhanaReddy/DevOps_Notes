@@ -9,6 +9,7 @@ metadata:
   annotations:
     description: storage class
     owner: ashok
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -34,17 +35,16 @@ metadata:
   resourceVersion: <string>
   selfLink: <string>
   uid: <string>
+
 provisioner: <string> # Required
-parameters:
-  type: gp3
-  fsType: ext4
+reclaimPolicy: Delete, Recycle, Retain
+volumeBindingMode: Immediate, WaitForFirstConsumer
+allowVolumeExpansion: <boolean>
 mountOptions:
   - <string>
-reclaimPolicy: <string>
-# Enum: Delete, Recycle, Retain
-volumeBindingMode: <string>
-# Enum: Immediate, WaitForFirstConsumer
-allowVolumeExpansion: <boolean>
+parameters: {}
+  type: gp3
+  fsType: ext4
 allowedTopologies:
   - matchLabelExpressions:
       - key: <string> # Required

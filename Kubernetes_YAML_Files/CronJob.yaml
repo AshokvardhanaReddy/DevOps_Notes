@@ -1,7 +1,11 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
+  name: <string>
+  namespace: <string>
+  labels: <map[string]string>
   annotations: <map[string]string>
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -9,7 +13,7 @@ metadata:
     - <string>
   generateName: <string>
   generation: <integer>
-  labels: <map[string]string>
+
   managedFields:
     - apiVersion: <string>
       fieldsType: <string>
@@ -18,8 +22,7 @@ metadata:
       operation: <string>
       subresource: <string>
       time: <string>
-  name: <string>
-  namespace: <string>
+
   ownerReferences:
     - apiVersion: <string> # Required
       blockOwnerDeletion: <boolean>
@@ -30,10 +33,16 @@ metadata:
   resourceVersion: <string>
   selfLink: <string>
   uid: <string>
+
 spec:
-  concurrencyPolicy: <string>
-  # Enum: Allow, Forbid, Replace
+  schedule: <string> # Required
+  concurrencyPolicy: Allow, Forbid, Replace
+  startingDeadlineSeconds: <integer>
+  successfulJobsHistoryLimit: <integer>
   failedJobsHistoryLimit: <integer>
+  suspend: <boolean>
+  timeZone: <string>
+
   jobTemplate: <JobTemplateSpec> # Required
     metadata:
       annotations: <map[string]string>
@@ -1364,12 +1373,9 @@ spec:
         podGroup: <string> # Required
         podGroupReplicaKey: <string>
       ttlSecondsAfterFinished: <integer>
-  schedule: <string> # Required
-  startingDeadlineSeconds: <integer>
-  successfulJobsHistoryLimit: <integer>
-  suspend: <boolean>
-  timeZone: <string>
-status: <CronJobStatus>
+
+
+status:
   active:
     - apiVersion: <string>
       fieldPath: <string>

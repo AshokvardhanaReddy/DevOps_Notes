@@ -36,7 +36,7 @@ metadata:
   selfLink: <string>
   uid: <string>
 spec:
-  selector:
+  selector:                         # Select PVs based on labels
     matchExpressions:
       - key: <string> # Required
         operator: <string> # Required
@@ -57,9 +57,9 @@ spec:
       memory: <Quantity>
   storageClassName: <string>
   volumeMode: Block, Filesystem
-  volumeName: <string>
+  volumeName: <string>                    # Explicitly bind PVC to a PV
   volumeAttributesClassName: <string>
-  dataSource:
+  dataSource:                               # dataSource is for creating a PVC from another supported data source, such as an existing PVC. It does not select a PV. Create/restore a PVC from a data source
     name: <string> # Required
     kind: <string> # Required
     apiGroup: <string>   

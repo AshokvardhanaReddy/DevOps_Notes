@@ -3,7 +3,10 @@ kind: StatefulSet
 metadata:
   name: <string>
   namespace: <string>
+  labels: <map[string]string>
   annotations: <map[string]string>
+
+
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
   deletionTimestamp: <string>
@@ -11,7 +14,7 @@ metadata:
     - <string>
   generateName: <string>
   generation: <integer>
-  labels: <map[string]string>
+
   managedFields:
     - apiVersion: <string>
       fieldsType: <string>
@@ -30,27 +33,37 @@ metadata:
   resourceVersion: <string>
   selfLink: <string>
   uid: <string>
+
+
 spec:
+  serviceName: <string>
+  selector:  # Required
+    matchExpressions:
+      - key: <string> # Required
+        operator:  DoesNotExist, Exists, Gt, In, ....  # Required - <string>
+        values:
+          - <string>
+    matchLabels: <map[string]string>
+  replicas: <integer>
+  podManagementPolicy: OrderedReady, Parallel
+  updateStrategy:
+    type: OnDelete, RollingUpdate
+    rollingUpdate:
+      maxUnavailable: <IntOrString>
+      partition: <integer>
+
+
   minReadySeconds: <integer>
   ordinals:
     start: <integer>
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: <string>
     whenScaled: <string>
-  podManagementPolicy: <string>
-  # Enum: OrderedReady, Parallel
-  replicas: <integer>
+
+
   revisionHistoryLimit: <integer>
-  selector:
-    # Required
-    matchExpressions:
-      - key: <string> # Required
-        operator: <string> # Required
-        # Enum: DoesNotExist, Exists, Gt, In, ....
-        values:
-          - <string>
-    matchLabels: <map[string]string>
-  serviceName: <string>
+
+
   template:
     metadata:
       name: <string>
@@ -1288,12 +1301,7 @@ spec:
             storagePolicyID: <string>
             storagePolicyName: <string>
             volumePath: <string> # Required
-  updateStrategy:
-    rollingUpdate:
-      maxUnavailable: <IntOrString>
-      partition: <integer>
-    type: <string>
-    # Enum: OnDelete, RollingUpdate
+
   volumeClaimTemplates:
     - apiVersion: <string>
       kind: <string>
@@ -1351,8 +1359,7 @@ spec:
           matchLabels: <map[string]string>
         storageClassName: <string>
         volumeAttributesClassName: <string>
-        volumeMode: <string>
-        # Enum: Block, Filesystem
+        volumeMode: Block, Filesystem
         volumeName: <string>
       status:
         accessModes:
@@ -1374,6 +1381,8 @@ spec:
           targetVolumeAttributesClassName: <string>
         phase: <string>
         # Enum: Bound, Lost, Pending
+
+
 status:
   availableReplicas: <integer>
   collisionCount: <integer>
