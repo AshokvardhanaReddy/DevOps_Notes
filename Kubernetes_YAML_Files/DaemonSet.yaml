@@ -1,6 +1,1235 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
+  annotations: {}
+  creationTimestamp: ""
+  deletionGracePeriodSeconds: 0
+  deletionTimestamp: ""
+  finalizers:
+    - ""
+  generateName: ""
+  generation: 0
+  labels: {}
+  managedFields:
+    - apiVersion: ""
+      fieldsType: ""
+      fieldsV1: {}
+      manager: ""
+      operation: ""
+      subresource: ""
+      time: ""
+  name: ""
+  namespace: ""
+  ownerReferences:
+    - apiVersion: "" # Required
+      blockOwnerDeletion: false
+      controller: false
+      kind: "" # Required
+      name: "" # Required
+      uid: "" # Required
+  resourceVersion: ""
+  selfLink: ""
+  uid: ""
+spec:
+  minReadySeconds: 0
+  revisionHistoryLimit: 0
+  selector: # Required
+    matchExpressions:
+      - key: "" # Required
+        operator: "" # Required
+        values: [value1,value2]
+    matchLabels: {}
+  template: # Required
+    metadata:
+      annotations: {}
+      creationTimestamp: ""
+      deletionGracePeriodSeconds: 0
+      deletionTimestamp: ""
+      finalizers:
+        - ""
+      generateName: ""
+      generation: 0
+      labels: {}
+      managedFields:
+        - apiVersion: ""
+          fieldsType: ""
+          fieldsV1: {}
+          manager: ""
+          operation: ""
+          subresource: ""
+          time: ""
+      name: ""
+      namespace: ""
+      ownerReferences:
+        - apiVersion: "" # Required
+          blockOwnerDeletion: false
+          controller: false
+          kind: "" # Required
+          name: "" # Required
+          uid: "" # Required
+      resourceVersion: ""
+      selfLink: ""
+      uid: ""
+    spec:
+      activeDeadlineSeconds: 0
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - preference: # Required
+                matchExpressions:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+                matchFields:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+              weight: 0 # Required
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms: # Required
+              - matchExpressions:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+                matchFields:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm: # Required
+                labelSelector:
+                  matchExpressions:
+                    - key: "" # Required
+                      operator: "" # Required
+                      values: [value1,value2]
+                  matchLabels: {}
+                matchLabelKeys: [value1,value2]
+                mismatchLabelKeys: [value1,value2]
+                namespaceSelector:
+                  matchExpressions:
+                    - key: "" # Required
+                      operator: "" # Required
+                      values: [value1,value2]
+                  matchLabels: {}
+                namespaces: [value1,value2]
+                topologyKey: "" # Required
+              weight: 0 # Required
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+                matchLabels: {}
+              matchLabelKeys: [value1,value2]
+              mismatchLabelKeys: [value1,value2]
+              namespaceSelector:
+                matchExpressions:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+                matchLabels: {}
+              namespaces: [value1,value2]
+              topologyKey: "" # Required
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm: # Required
+                labelSelector:
+                  matchExpressions:
+                    - key: "" # Required
+                      operator: "" # Required
+                      values: [value1,value2]
+                  matchLabels: {}
+                matchLabelKeys: [value1,value2]
+                mismatchLabelKeys: [value1,value2]
+                namespaceSelector:
+                  matchExpressions:
+                    - key: "" # Required
+                      operator: "" # Required
+                      values: [value1,value2]
+                  matchLabels: {}
+                namespaces: [value1,value2]
+                topologyKey: "" # Required
+              weight: 0 # Required
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+                matchLabels: {}
+              matchLabelKeys: [value1,value2]
+              mismatchLabelKeys: [value1,value2]
+              namespaceSelector:
+                matchExpressions:
+                  - key: "" # Required
+                    operator: "" # Required
+                    values: [value1,value2]
+                matchLabels: {}
+              namespaces: [value1,value2]
+              topologyKey: "" # Required
+      automountServiceAccountToken: false
+      containers: # Required
+        - args: [value1,value2]
+          command: [value1,value2]
+          env:
+            - name: "" # Required
+              value: ""
+              valueFrom:
+                configMapKeyRef:
+                  key: "" # Required
+                  name: ""
+                  optional: false
+                fieldRef:
+                  apiVersion: ""
+                  fieldPath: "" # Required
+                fileKeyRef:
+                  key: "" # Required
+                  optional: false
+                  path: "" # Required
+                  volumeName: "" # Required
+                resourceFieldRef:
+                  containerName: ""
+                  divisor: ""
+                  resource: "" # Required
+                secretKeyRef:
+                  key: "" # Required
+                  name: ""
+                  optional: false
+          envFrom:
+            - configMapRef:
+                name: ""
+                optional: false
+              prefix: ""
+              secretRef:
+                name: ""
+                optional: false
+          image: ""
+          imagePullPolicy: "" # [Always,IfNotPresent,Never]
+          lifecycle:
+            postStart:
+              exec:
+                command: [value1,value2]
+              httpGet:
+                host: ""
+                httpHeaders:
+                  - name: "" # Required
+                    value: "" # Required
+                path: ""
+                port: "" # Required
+                scheme: "" # [HTTP,HTTPS]
+              sleep:
+                seconds: 0 # Required
+              tcpSocket:
+                host: ""
+                port: "" # Required
+            preStop:
+              exec:
+                command: [value1,value2]
+              httpGet:
+                host: ""
+                httpHeaders:
+                  - name: "" # Required
+                    value: "" # Required
+                path: ""
+                port: "" # Required
+                scheme: "" # [HTTP,HTTPS]
+              sleep:
+                seconds: 0 # Required
+              tcpSocket:
+                host: ""
+                port: "" # Required
+            stopSignal: "" # [SIGABRT,SIGALRM,SIGBUS,SIGCHLD,...]
+          livenessProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          name: "" # Required
+          ports:
+            - containerPort: 0 # Required
+              hostIP: ""
+              hostPort: 0
+              name: ""
+              protocol: "" # [SCTP,TCP,UDP]
+          readinessProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          resizePolicy:
+            - resourceName: "" # Required
+              restartPolicy: "" # Required
+          resources:
+            claims:
+              - name: "" # Required
+                request: ""
+            limits: {}
+            requests: {}
+          restartPolicy: ""
+          restartPolicyRules:
+            - action: "" # Required
+              exitCodes:
+                operator: "" # Required
+                values: [0,0]
+          securityContext:
+            allowPrivilegeEscalation: false
+            appArmorProfile:
+              localhostProfile: ""
+              type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+            capabilities:
+              add: [value1,value2]
+              drop: [value1,value2]
+            privileged: false
+            procMount: "" # [Default,Unmasked]
+            readOnlyRootFilesystem: false
+            runAsGroup: 0
+            runAsNonRoot: false
+            runAsUser: 0
+            seLinuxOptions:
+              level: ""
+              role: ""
+              type: ""
+              user: ""
+            seccompProfile:
+              localhostProfile: ""
+              type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+            windowsOptions:
+              gmsaCredentialSpec: ""
+              gmsaCredentialSpecName: ""
+              hostProcess: false
+              runAsUserName: ""
+          startupProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          stdin: false
+          stdinOnce: false
+          terminationMessagePath: ""
+          terminationMessagePolicy: "" # [FallbackToLogsOnError,File]
+          tty: false
+          volumeDevices:
+            - devicePath: "" # Required
+              name: "" # Required
+          volumeMounts:
+            - mountPath: "" # Required
+              mountPropagation: "" # [Bidirectional,HostToContainer,None]
+              name: "" # Required
+              readOnly: false
+              recursiveReadOnly: ""
+              subPath: ""
+              subPathExpr: ""
+          workingDir: ""
+      dnsConfig:
+        nameservers: [value1,value2]
+        options:
+          - name: ""
+            value: ""
+        searches: [value1,value2]
+      dnsPolicy: "" # [ClusterFirst,ClusterFirstWithHostNet,Default,None]
+      enableServiceLinks: false
+      ephemeralContainers:
+        - args: [value1,value2]
+          command: [value1,value2]
+          env:
+            - name: "" # Required
+              value: ""
+              valueFrom:
+                configMapKeyRef:
+                  key: "" # Required
+                  name: ""
+                  optional: false
+                fieldRef:
+                  apiVersion: ""
+                  fieldPath: "" # Required
+                fileKeyRef:
+                  key: "" # Required
+                  optional: false
+                  path: "" # Required
+                  volumeName: "" # Required
+                resourceFieldRef:
+                  containerName: ""
+                  divisor: ""
+                  resource: "" # Required
+                secretKeyRef:
+                  key: "" # Required
+                  name: ""
+                  optional: false
+          envFrom:
+            - configMapRef:
+                name: ""
+                optional: false
+              prefix: ""
+              secretRef:
+                name: ""
+                optional: false
+          image: ""
+          imagePullPolicy: "" # [Always,IfNotPresent,Never]
+          lifecycle:
+            postStart:
+              exec:
+                command: [value1,value2]
+              httpGet:
+                host: ""
+                httpHeaders:
+                  - name: "" # Required
+                    value: "" # Required
+                path: ""
+                port: "" # Required
+                scheme: "" # [HTTP,HTTPS]
+              sleep:
+                seconds: 0 # Required
+              tcpSocket:
+                host: ""
+                port: "" # Required
+            preStop:
+              exec:
+                command: [value1,value2]
+              httpGet:
+                host: ""
+                httpHeaders:
+                  - name: "" # Required
+                    value: "" # Required
+                path: ""
+                port: "" # Required
+                scheme: "" # [HTTP,HTTPS]
+              sleep:
+                seconds: 0 # Required
+              tcpSocket:
+                host: ""
+                port: "" # Required
+            stopSignal: "" # [SIGABRT,SIGALRM,SIGBUS,SIGCHLD,...]
+          livenessProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          name: "" # Required
+          ports:
+            - containerPort: 0 # Required
+              hostIP: ""
+              hostPort: 0
+              name: ""
+              protocol: "" # [SCTP,TCP,UDP]
+          readinessProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          resizePolicy:
+            - resourceName: "" # Required
+              restartPolicy: "" # Required
+          resources:
+            claims:
+              - name: "" # Required
+                request: ""
+            limits: {}
+            requests: {}
+          restartPolicy: ""
+          restartPolicyRules:
+            - action: "" # Required
+              exitCodes:
+                operator: "" # Required
+                values: [0,0]
+          securityContext:
+            allowPrivilegeEscalation: false
+            appArmorProfile:
+              localhostProfile: ""
+              type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+            capabilities:
+              add: [value1,value2]
+              drop: [value1,value2]
+            privileged: false
+            procMount: "" # [Default,Unmasked]
+            readOnlyRootFilesystem: false
+            runAsGroup: 0
+            runAsNonRoot: false
+            runAsUser: 0
+            seLinuxOptions:
+              level: ""
+              role: ""
+              type: ""
+              user: ""
+            seccompProfile:
+              localhostProfile: ""
+              type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+            windowsOptions:
+              gmsaCredentialSpec: ""
+              gmsaCredentialSpecName: ""
+              hostProcess: false
+              runAsUserName: ""
+          startupProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          stdin: false
+          stdinOnce: false
+          targetContainerName: ""
+          terminationMessagePath: ""
+          terminationMessagePolicy: "" # [FallbackToLogsOnError,File]
+          tty: false
+          volumeDevices:
+            - devicePath: "" # Required
+              name: "" # Required
+          volumeMounts:
+            - mountPath: "" # Required
+              mountPropagation: "" # [Bidirectional,HostToContainer,None]
+              name: "" # Required
+              readOnly: false
+              recursiveReadOnly: ""
+              subPath: ""
+              subPathExpr: ""
+          workingDir: ""
+      hostAliases:
+        - hostnames: [value1,value2]
+          ip: "" # Required
+      hostIPC: false
+      hostNetwork: false
+      hostPID: false
+      hostUsers: false
+      hostname: ""
+      hostnameOverride: ""
+      imagePullSecrets:
+        - name: ""
+      initContainers:
+        - name: "" # Required
+          image: ""
+          imagePullPolicy: "" # [Always,IfNotPresent,Never]
+          args: [value1,value2]
+          command: [value1,value2]
+          env:
+            - name: "" # Required
+              value: ""
+              valueFrom:
+                configMapKeyRef:
+                  key: "" # Required
+                  name: ""
+                  optional: false
+                fieldRef:
+                  apiVersion: ""
+                  fieldPath: "" # Required
+                fileKeyRef:
+                  key: "" # Required
+                  optional: false
+                  path: "" # Required
+                  volumeName: "" # Required
+                resourceFieldRef:
+                  containerName: ""
+                  divisor: ""
+                  resource: "" # Required
+                secretKeyRef:
+                  key: "" # Required
+                  name: ""
+                  optional: false
+          envFrom:
+            - configMapRef:
+                name: ""
+                optional: false
+              prefix: ""
+              secretRef:
+                name: ""
+                optional: false
+          lifecycle:
+            postStart:
+              exec:
+                command: [value1,value2]
+              httpGet:
+                host: ""
+                httpHeaders:
+                  - name: "" # Required
+                    value: "" # Required
+                path: ""
+                port: "" # Required
+                scheme: "" # [HTTP,HTTPS]
+              sleep:
+                seconds: 0 # Required
+              tcpSocket:
+                host: ""
+                port: "" # Required
+            preStop:
+              exec:
+                command: [value1,value2]
+              httpGet:
+                host: ""
+                httpHeaders:
+                  - name: "" # Required
+                    value: "" # Required
+                path: ""
+                port: "" # Required
+                scheme: "" # [HTTP,HTTPS]
+              sleep:
+                seconds: 0 # Required
+              tcpSocket:
+                host: ""
+                port: "" # Required
+            stopSignal: "" # [SIGABRT,SIGALRM,SIGBUS,SIGCHLD,...]
+          livenessProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          ports:
+            - containerPort: 0 # Required
+              hostIP: ""
+              hostPort: 0
+              name: ""
+              protocol: "" # [SCTP,TCP,UDP]
+          readinessProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          resizePolicy:
+            - resourceName: "" # Required
+              restartPolicy: "" # Required
+          resources:
+            claims:
+              - name: "" # Required
+                request: ""
+            limits: {}
+            requests: {}
+          restartPolicy: ""
+          restartPolicyRules:
+            - action: "" # Required
+              exitCodes:
+                operator: "" # Required
+                values: [0,0]
+          securityContext:
+            allowPrivilegeEscalation: false
+            appArmorProfile:
+              localhostProfile: ""
+              type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+            capabilities:
+              add: [value1,value2]
+              drop: [value1,value2]
+            privileged: false
+            procMount: "" # [Default,Unmasked]
+            readOnlyRootFilesystem: false
+            runAsGroup: 0
+            runAsNonRoot: false
+            runAsUser: 0
+            seLinuxOptions:
+              level: ""
+              role: ""
+              type: ""
+              user: ""
+            seccompProfile:
+              localhostProfile: ""
+              type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+            windowsOptions:
+              gmsaCredentialSpec: ""
+              gmsaCredentialSpecName: ""
+              hostProcess: false
+              runAsUserName: ""
+          startupProbe:
+            exec:
+              command: [value1,value2]
+            failureThreshold: 0
+            grpc:
+              port: 0 # Required
+              service: ""
+            httpGet:
+              host: ""
+              httpHeaders:
+                - name: "" # Required
+                  value: "" # Required
+              path: ""
+              port: "" # Required
+              scheme: "" # [HTTP,HTTPS]
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            tcpSocket:
+              host: ""
+              port: "" # Required
+            terminationGracePeriodSeconds: 0
+            timeoutSeconds: 0
+          stdin: false
+          stdinOnce: false
+          terminationMessagePath: ""
+          terminationMessagePolicy: "" # [FallbackToLogsOnError,File]
+          tty: false
+          volumeDevices:
+            - devicePath: "" # Required
+              name: "" # Required
+          volumeMounts:
+            - mountPath: "" # Required
+              mountPropagation: "" # [Bidirectional,HostToContainer,None]
+              name: "" # Required
+              readOnly: false
+              recursiveReadOnly: ""
+              subPath: ""
+              subPathExpr: ""
+          workingDir: ""
+      nodeName: ""
+      nodeSelector: {}
+      os:
+        name: "" # Required
+      overhead: {}
+      preemptionPolicy: "" # [Never,PreemptLowerPriority]
+      priority: 0
+      priorityClassName: ""
+      readinessGates:
+        - conditionType: "" # Required
+      resourceClaims:
+        - name: "" # Required
+          resourceClaimName: ""
+          resourceClaimTemplateName: ""
+      resources:
+        claims:
+          - name: "" # Required
+            request: ""
+        limits: {}
+        requests: {}
+      restartPolicy: "" # [Always,Never,OnFailure]
+      runtimeClassName: ""
+      schedulerName: ""
+      schedulingGates:
+        - name: "" # Required
+      securityContext:
+        appArmorProfile:
+          localhostProfile: ""
+          type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+        fsGroup: 0
+        fsGroupChangePolicy: "" # [Always,OnRootMismatch]
+        runAsGroup: 0
+        runAsNonRoot: false
+        runAsUser: 0
+        seLinuxChangePolicy: ""
+        seLinuxOptions:
+          level: ""
+          role: ""
+          type: ""
+          user: ""
+        seccompProfile:
+          localhostProfile: ""
+          type: "" # Required, [Localhost,RuntimeDefault,Unconfined]
+        supplementalGroups: [0,0]
+        supplementalGroupsPolicy: "" # [Merge,Strict]
+        sysctls:
+          - name: "" # Required
+            value: "" # Required
+        windowsOptions:
+          gmsaCredentialSpec: ""
+          gmsaCredentialSpecName: ""
+          hostProcess: false
+          runAsUserName: ""
+      serviceAccount: ""
+      serviceAccountName: ""
+      setHostnameAsFQDN: false
+      shareProcessNamespace: false
+      subdomain: ""
+      terminationGracePeriodSeconds: 0
+      tolerations:
+        - effect: "" # [NoExecute,NoSchedule,PreferNoSchedule]
+          key: ""
+          operator: "" # [Equal,Exists,Gt,Lt]
+          tolerationSeconds: 0
+          value: ""
+      topologySpreadConstraints:
+        - labelSelector:
+            matchExpressions:
+              - key: "" # Required
+                operator: "" # Required
+                values: [value1,value2]
+            matchLabels: {}
+          matchLabelKeys: [value1,value2]
+          maxSkew: 0 # Required
+          minDomains: 0
+          nodeAffinityPolicy: "" # [Honor,Ignore]
+          nodeTaintsPolicy: "" # [Honor,Ignore]
+          topologyKey: "" # Required
+          whenUnsatisfiable: "" # [DoNotSchedule,ScheduleAnyway]
+      volumes:
+        - awsElasticBlockStore:
+            fsType: ""
+            partition: 0
+            readOnly: false
+            volumeID: "" # Required
+          azureDisk:
+            cachingMode: "" # [None,ReadOnly,ReadWrite]
+            diskName: "" # Required
+            diskURI: "" # Required
+            fsType: ""
+            kind: "" # [Dedicated,Managed,Shared]
+            readOnly: false
+          azureFile:
+            readOnly: false
+            secretName: "" # Required
+            shareName: "" # Required
+          cephfs:
+            monitors: [value1,value2] # Required
+            path: ""
+            readOnly: false
+            secretFile: ""
+            secretRef:
+              name: ""
+            user: ""
+          cinder:
+            fsType: ""
+            readOnly: false
+            secretRef:
+              name: ""
+            volumeID: "" # Required
+          configMap:
+            defaultMode: 0
+            items:
+              - key: "" # Required
+                mode: 0
+                path: "" # Required
+            name: ""
+            optional: false
+          csi:
+            driver: "" # Required
+            fsType: ""
+            nodePublishSecretRef:
+              name: ""
+            readOnly: false
+            volumeAttributes: {}
+          downwardAPI:
+            defaultMode: 0
+            items:
+              - fieldRef:
+                  apiVersion: ""
+                  fieldPath: "" # Required
+                mode: 0
+                path: "" # Required
+                resourceFieldRef:
+                  containerName: ""
+                  divisor: ""
+                  resource: "" # Required
+          emptyDir:
+            medium: ""
+            sizeLimit: ""
+          ephemeral:
+            volumeClaimTemplate:
+              metadata:
+                annotations: {}
+                creationTimestamp: ""
+                deletionGracePeriodSeconds: 0
+                deletionTimestamp: ""
+                finalizers:
+                  - ""
+                generateName: ""
+                generation: 0
+                labels: {}
+                managedFields:
+                  - apiVersion: ""
+                    fieldsType: ""
+                    fieldsV1: {}
+                    manager: ""
+                    operation: ""
+                    subresource: ""
+                    time: ""
+                name: ""
+                namespace: ""
+                ownerReferences:
+                  - apiVersion: "" # Required
+                    blockOwnerDeletion: false
+                    controller: false
+                    kind: "" # Required
+                    name: "" # Required
+                    uid: "" # Required
+                resourceVersion: ""
+                selfLink: ""
+                uid: ""
+              spec: # Required
+                accessModes: [value1,value2]
+                dataSource:
+                  apiGroup: ""
+                  kind: "" # Required
+                  name: "" # Required
+                dataSourceRef:
+                  apiGroup: ""
+                  kind: "" # Required
+                  name: "" # Required
+                  namespace: ""
+                resources:
+                  limits: {}
+                  requests: {}
+                selector:
+                  matchExpressions:
+                    - key: "" # Required
+                      operator: "" # Required
+                      values: [value1,value2]
+                  matchLabels: {}
+                storageClassName: ""
+                volumeAttributesClassName: ""
+                volumeMode: "" # [Block,Filesystem]
+                volumeName: ""
+          fc:
+            fsType: ""
+            lun: 0
+            readOnly: false
+            targetWWNs: [value1,value2]
+            wwids: [value1,value2]
+          flexVolume:
+            driver: "" # Required
+            fsType: ""
+            options: {}
+            readOnly: false
+            secretRef:
+              name: ""
+          flocker:
+            datasetName: ""
+            datasetUUID: ""
+          gcePersistentDisk:
+            fsType: ""
+            partition: 0
+            pdName: "" # Required
+            readOnly: false
+          gitRepo:
+            directory: ""
+            repository: "" # Required
+            revision: ""
+          glusterfs:
+            endpoints: "" # Required
+            path: "" # Required
+            readOnly: false
+          hostPath:
+            path: "" # Required
+            type: "" # ["",BlockDevice,CharDevice,Directory,...]
+          image:
+            pullPolicy: "" # [Always,IfNotPresent,Never]
+            reference: ""
+          iscsi:
+            chapAuthDiscovery: false
+            chapAuthSession: false
+            fsType: ""
+            initiatorName: ""
+            iqn: "" # Required
+            iscsiInterface: ""
+            lun: 0 # Required
+            portals: [value1,value2]
+            readOnly: false
+            secretRef:
+              name: ""
+            targetPortal: "" # Required
+          name: "" # Required
+          nfs:
+            path: "" # Required
+            readOnly: false
+            server: "" # Required
+          persistentVolumeClaim:
+            claimName: "" # Required
+            readOnly: false
+          photonPersistentDisk:
+            fsType: ""
+            pdID: "" # Required
+          portworxVolume:
+            fsType: ""
+            readOnly: false
+            volumeID: "" # Required
+          projected:
+            defaultMode: 0
+            sources:
+              - clusterTrustBundle:
+                  labelSelector:
+                    matchExpressions:
+                      - key: "" # Required
+                        operator: "" # Required
+                        values: [value1,value2]
+                    matchLabels: {}
+                  name: ""
+                  optional: false
+                  path: "" # Required
+                  signerName: ""
+                configMap:
+                  items:
+                    - key: "" # Required
+                      mode: 0
+                      path: "" # Required
+                  name: ""
+                  optional: false
+                downwardAPI:
+                  items:
+                    - fieldRef:
+                        apiVersion: ""
+                        fieldPath: "" # Required
+                      mode: 0
+                      path: "" # Required
+                      resourceFieldRef:
+                        containerName: ""
+                        divisor: ""
+                        resource: "" # Required
+                podCertificate:
+                  certificateChainPath: ""
+                  credentialBundlePath: ""
+                  keyPath: ""
+                  keyType: "" # Required
+                  maxExpirationSeconds: 0
+                  signerName: "" # Required
+                  userAnnotations: {}
+                secret:
+                  items:
+                    - key: "" # Required
+                      mode: 0
+                      path: "" # Required
+                  name: ""
+                  optional: false
+                serviceAccountToken:
+                  audience: ""
+                  expirationSeconds: 0
+                  path: "" # Required
+          quobyte:
+            group: ""
+            readOnly: false
+            registry: "" # Required
+            tenant: ""
+            user: ""
+            volume: "" # Required
+          rbd:
+            fsType: ""
+            image: "" # Required
+            keyring: ""
+            monitors: [value1,value2] # Required
+            pool: ""
+            readOnly: false
+            secretRef:
+              name: ""
+            user: ""
+          scaleIO:
+            fsType: ""
+            gateway: "" # Required
+            protectionDomain: ""
+            readOnly: false
+            secretRef: # Required
+              name: ""
+            sslEnabled: false
+            storageMode: ""
+            storagePool: ""
+            system: "" # Required
+            volumeName: ""
+          secret:
+            defaultMode: 0
+            items:
+              - key: "" # Required
+                mode: 0
+                path: "" # Required
+            optional: false
+            secretName: ""
+          storageos:
+            fsType: ""
+            readOnly: false
+            secretRef:
+              name: ""
+            volumeName: ""
+            volumeNamespace: ""
+          vsphereVolume:
+            fsType: ""
+            storagePolicyID: ""
+            storagePolicyName: ""
+            volumePath: "" # Required
+          workloadRef:
+            name: "" # Required
+            podGroup: "" # Required
+            podGroupReplicaKey: ""
+  updateStrategy:
+    rollingUpdate:
+      maxSurge: ""
+      maxUnavailable: ""
+    type: "" # [OnDelete,RollingUpdate]
+status:
+  collisionCount: 0
+  conditions:
+    - lastTransitionTime: ""
+      message: ""
+      reason: ""
+      status: "" # Required
+      type: "" # Required
+  currentNumberScheduled: 0 # Required
+  desiredNumberScheduled: 0 # Required
+  numberAvailable: 0
+  numberMisscheduled: 0 # Required
+  numberReady: 0 # Required
+  numberUnavailable: 0
+  observedGeneration: 0
+  updatedNumberScheduled: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
   annotations: <map[string]string>
   creationTimestamp: <string>
   deletionGracePeriodSeconds: <integer>
